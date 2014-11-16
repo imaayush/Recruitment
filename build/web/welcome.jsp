@@ -4,7 +4,11 @@
     Author     : Knight
 --%>
 
+<%@page import="java.sql.*"%>
+<%@page import="bean.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="bean.ConnectionProvider.*" %>   
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +16,20 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+        <%  String Father = request.getParameter("Father");
+            String Age = request.getParameter("Age");
+            int Age1 = Integer.parseInt(Age);
+            String Add1 = request.getParameter("Add1");
+             Add1 = Add1 + request.getParameter("Add2");
+            Connection conn = ConnectionProvider.getCon();
+            String query = "update INFO_TEMP set FATHER_NAME=? ,AGE=? ,ADRESS=? where EMAIL= ?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, Father);
+            ps.setInt(2, Age1);
+            ps.setString(3,Add1);
+            ps.setString(4,"ctiwari942@gmail.com");
+            ps.executeUpdate();
+        %>
     </body>
 </html>

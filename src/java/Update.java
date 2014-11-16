@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 import bean.ConnectionProvider;
-
+import bean.DataSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Knight
  */
-public class Basic extends HttpServlet {
+public class Update extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,41 +34,41 @@ public class Basic extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String uname = request.getParameter("name");
-            String upass = request.getParameter("password");
-            String uemail = request.getParameter("email");
-            String mobile = request.getParameter("mobile");
-            out.print("Welcome");
             try {
+                DataSet In = new DataSet();
+                In.setUfather(request.getParameter("Father"));
+                String Age = request.getParameter("Age");
+                int Age1 = Integer.parseInt(Age);
+                In.setUage(Age1);
+                String Add1 = request.getParameter("Add1");
+                Add1 = Add1 + request.getParameter("Add2");
+                In.setUadd(Add1);
+                In.setUpro(request.getParameter("Pro"));
                 Connection conn = ConnectionProvider.getCon();
-                String query = "insert into BASIC(PK_ID,Name,Email,Mobile,Status,Password) values(?,?,?,?,?,?)";
+               
+                String query = "update INFO_TEMP set FATHER_NAME=?,AGE=?,ADRESS=?,X=?,XII=?,GRAD=?,INSTITUTION=?,PROJECT=?,SKILLES=?,EXPERIENCE=?,COMPANY=?,PHOTO_PATH=?,SNIG_PATH=? where EMAIL= ?";
                 PreparedStatement ps = conn.prepareStatement(query);
-                ps.setInt(1, 1);
-                ps.setString(2, uname);
-                ps.setString(3, uemail);
-                ps.setString(4, mobile);
-                ps.setString(5, "D");
-                ps.setString(6, upass);
+        
+                ps.setString(1, In.getUfather());
+                ps.setInt(2, In.getUage());
+                ps.setString(3,In.getUadd());
+                ps.setInt(4,In.getUx());
+                ps.setInt(5,In.getUxii());
+                ps.setInt(6,In.getUgrad());
+                ps.setString(7,In.getUins());
+                ps.setString(8,In.getUpro());
+                ps.setString(9,In.getUskill());
+                ps.setInt(10,In.getUexp());
+                ps.setString(11,In.getUcompany());
+                ps.setString(12,In.getUphoto());
+                ps.setString(13,In.getUsnigh());
+                ps.setString(14, "ctiwari945@gmail.com");
                 ps.executeUpdate();
-               ps.close();
-               conn.close();
-                
+
             } catch (Exception e) {
                 out.print(e);
             }
-            try {
-                uemail = request.getParameter("email");
-                Connection conn = ConnectionProvider.getCon();
-                String query = "insert into INFO_TEMP(FATHER_NAME,EMAIL) values(?,?)";
-                PreparedStatement ps = conn.prepareStatement(query);
-                ps.setString(1,uemail);
-               ps.setString(2,uemail);
-                ps.executeUpdate();
-               out.print(uemail);
-                response.sendRedirect("Personal.jsp");
-            } catch (Exception e) {
-                out.print(e);
-            }
+            
         }
     }
 
