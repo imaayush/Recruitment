@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Acadeamic_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Project_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -121,6 +121,7 @@ public final class Acadeamic_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </nav>\r\n");
       out.write("\r\n");
       out.write('\n');
+      out.write(' ');
       out.write("\n");
       out.write("\n");
       out.write("<div style=\"width:25% ;float:left;height:100% ;background-color:#F5F5F5;\">\n");
@@ -158,33 +159,37 @@ public final class Acadeamic_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("</div>");
       out.write("\n");
-      out.write("<div class=\"panel panel-default\" style=\"width:75% ;float:right;height:80%\">\n");
+      out.write("<div class=\"panel panel-default\" style=\"width:75% ;float:left;height:80%\">\n");
       out.write("  <!-- Default panel contents -->\n");
-      out.write("  <div class=\"panel-heading\">Acadeamic details</div>\n");
+      out.write("  <div class=\"panel-heading\">Project details</div>\n");
       out.write("  <div class=\"panel-body\">\n");
-      out.write("  <form role=\"form\" action=\"p&t.jsp\" method=\"post\" >\n");
+      out.write("  <form role=\"form\" action=\"Comp.jsp\" method=\"post\" >\n");
       out.write("    <table style=\"width:100%; height :75%;\">\n");
       out.write("  <tr>\n");
-      out.write("    <td><label for=\"x\">X %</label></td>\n");
-      out.write("    <td><input type=\"text\" class=\"form-control\" id=\"x\" \"></td> \n");
+      out.write("    <td><label for=\"name1\">Project 1:</label></td>\n");
+      out.write("    <td><input type=\"text\" class=\"form-control\" id=\"name1\" placeholder=\"Project Details\"></td> \n");
       out.write("  </tr>\n");
       out.write("  <tr>\n");
-      out.write("  <td><label for=\"xii\">XII %</label></td>\n");
-      out.write("  <td><input type=\"text\" class=\"form-control\" id=\"xii\" ></td> \n");
+      out.write("      <td><label for=\"name1\">Project 2:</label></td>\n");
+      out.write("      <td><input type=\"text\" class=\"form-control\" id=\"name2\" placeholder=\"Project Details\"></td> \n");
+      out.write("  </tr>\n");
+      out.write("  <tr>\n");
+      out.write("      <td><label for=\"name1\">Project 3(Optional):</label></td>\n");
+      out.write("      <td><input type=\"text\" class=\"form-control\" id=\"name3\" placeholder=\"Project Details\"></td> \n");
       out.write("  </tr>\n");
       out.write("   <tr>\n");
-      out.write("  <td><label for=\"grad\">Grad. %</label></td>\n");
-      out.write("  <td><input type=\"text\" class=\"form-control\" id=\"grad\" ></td> \n");
+      out.write("       <td><label for=\"name1\">Project 4(Optional):</label></td>\n");
+      out.write("       <td><input type=\"text\" class=\"form-control\" id=\"name4\" placeholder=\"Project Details\"></td> \n");
       out.write("  </tr>\n");
       out.write("  <tr>\n");
-      out.write("  <td><label for=\"Pg\">Post Grad. %</label></td>\n");
-      out.write("  <td><input type=\"text\" class=\"form-control\" id=\"Pg\" ></td> \n");
+      out.write("      <td><label for=\"name1\">Project 5(Optional):</label></td>\n");
+      out.write("      <td><input type=\"text\" class=\"form-control\" id=\"name5\" placeholder=\"Project Details\"></td> \n");
       out.write("  </tr>\n");
-      out.write("  \n");
+      out.write("   <tr>\n");
       out.write("   </table>\n");
       out.write("   <div class=\"modal-footer\">\n");
-      out.write("        <button type=\"button\" class=\"btn btn-default\" >Save</button>\n");
-      out.write("       <button type=\"button\"  class=\"btn btn-primary\" onclick=\"window.location.href='Personal.jsp';\">Next</button>\n");
+      out.write("        <button type=\"Submit\" class=\"btn btn-default\" value=\"Sumbmit\" >Save</button>\n");
+      out.write("        <button type=\"button\" value =\"Submit\" class=\"btn btn-primary\"onclick=\"window.location.href = 'Acadeamic.jsp';\">Next</button>\n");
       out.write("         \n");
       out.write("\n");
       out.write("      </div>\n");

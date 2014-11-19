@@ -41,7 +41,7 @@ public class Basic extends HttpServlet {
             out.print("Welcome");
             try {
                 Connection conn = ConnectionProvider.getCon();
-                String query = "insert into BASIC(PK_ID,Name,Email,Mobile,Status,Password) values(?,?,?,?,?,?)";
+                String query = "insert into INFO (ID,Name,Email,Mobile,Status,Password) values(?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setInt(1, 1);
                 ps.setString(2, uname);
@@ -50,25 +50,12 @@ public class Basic extends HttpServlet {
                 ps.setString(5, "D");
                 ps.setString(6, upass);
                 ps.executeUpdate();
-               ps.close();
-               conn.close();
+               
                 
             } catch (Exception e) {
                 out.print(e);
             }
-            try {
-                uemail = request.getParameter("email");
-                Connection conn = ConnectionProvider.getCon();
-                String query = "insert into INFO_TEMP(FATHER_NAME,EMAIL) values(?,?)";
-                PreparedStatement ps = conn.prepareStatement(query);
-                ps.setString(1,uemail);
-               ps.setString(2,uemail);
-                ps.executeUpdate();
-               out.print(uemail);
-                response.sendRedirect("Personal.jsp");
-            } catch (Exception e) {
-                out.print(e);
-            }
+            
         }
     }
 

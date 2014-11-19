@@ -7,8 +7,12 @@ JSP
 Skill.jsp
 + 1 from_heder.html
 from_heder.html
++ 2 side_bar1.jsp
+side_bar1.jsp
 *L
-1:49,2
-1#1,72:51
-2#0,71:122
+1:50,2
+1#1,72:52
+2#0:123
+5#2,36:124
+3#0,37:160
 *E

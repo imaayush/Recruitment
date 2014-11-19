@@ -1,39 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<%@ include file="from_heder.html" %>
-<div style="width:25% ;float:left;height:80% ;background-color:#F5F5F5;">
-	<ul class="list-group">
-	  <li class="list-group-item">
-	    <span class="glyphicon glyphicon-ok"></span>
-	    <a href="Ps.jsp">Personal Details</a>
-	  </li>
-	  <li class="list-group-item">
-	  <span class="glyphicon glyphicon-ok"></span>
-	    <a href="Ac.jsp">Academic Details</a>
-	  </li>
-	  <li class="list-group-item">
-	    <span class="glyphicon glyphicon-ok"></span>
-		 <a href="p&t.jsp">Training</a>
-	  </li>
-	  <li class="list-group-item">
-	   <span class="glyphicon glyphicon-ok"></span>
-	    <a href="Pro.jsp">Projects</a>    
-	  </li>
-	  <li class="list-group-item">
-	    <span class="glyphicon glyphicon-ok"></span>
-		 <a href="Comp.jsp">Computer Skills</a>
-	  </li>
-	  <li class="list-group-item">
-	    <span class="glyphicon glyphicon-ok"></span>
-		 <a href="exp.jsp">Experience</a>   
-	  </li>
-	  <li class="list-group-item">
-		   <a href="ph.jsp">Photo and Signature upload</a>
-	    <span class="glyphicon glyphicon-remove"></span>
-    
-	  </li>
-	</ul>
-
-</div>
+<%@ include file="header.jsp" %>
 <div class="panel panel-default" style="width:75% ;float:left;height:80%">
   <!-- Default panel contents -->
   <div class="panel-heading">Photo and Singnature</div>
@@ -51,8 +17,8 @@
   
    </table>
    <div class="modal-footer">
-        <button type="button" class="btn btn-default" >Save</button>
-        <button type="Submit" value ="Submit" class="btn btn-primary">Next</button>
+        
+        <button type="Submit" value ="Submit" class="btn btn-primary">Submit</button>
          
 
       </div>

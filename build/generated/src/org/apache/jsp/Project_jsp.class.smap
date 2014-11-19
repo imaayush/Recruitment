@@ -1,10 +1,10 @@
 SMAP
-Acadeamic_jsp.java
+Project_jsp.java
 JSP
 *S JSP
 *F
-+ 0 Acadeamic.jsp
-Acadeamic.jsp
++ 0 Project.jsp
+Project.jsp
 + 1 from_heder.html
 from_heder.html
 + 2 side_bar1.jsp
@@ -12,7 +12,7 @@ side_bar1.jsp
 *L
 1:50,2
 1#1,72:52
-2#0:123
-5#2,36:124
-3#0,42:160
+2#0,2:123
+5#2,36:125
+3#0,46:161
 *E

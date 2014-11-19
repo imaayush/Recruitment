@@ -36,6 +36,7 @@ public class Login extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String uemail = request.getParameter("Name");
             String upass = request.getParameter("Password");
+            
             uemail="'"+uemail+"'";
             out.print("Welcome");
             try {
@@ -52,9 +53,10 @@ public class Login extends HttpServlet {
                     status = rs.getString("Status");
 
                 }
-                if (pass.equals(upass) && "A".equals(status)) {
-                    response.sendRedirect("Ps.jsp");
-                } else if (pass.equals(upass)) {
+                if (pass.equals(upass) && "D".equals(status)) {
+                    
+                    response.sendRedirect("Personal.jsp");
+                } else if (pass.equals(upass)&&"A".equals(status)) {
                     response.sendRedirect("home.jsp");
                 } else {
                     response.sendRedirect("index.jsp");
@@ -77,6 +79,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+  
         processRequest(request, response);
     }
 

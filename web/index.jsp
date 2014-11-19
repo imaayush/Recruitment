@@ -1,11 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%session.setAttribute( "id","");%>
 <%@ include file="index_header.html" %>
 <div style="width:27%;float:left;height:100%">
     <h1>  </h1>
 </div>
 
     
-<%@ include file="login.html" %>
+<%@ include file="login.jsp" %>
     
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

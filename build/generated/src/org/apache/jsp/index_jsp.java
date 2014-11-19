@@ -14,7 +14,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   static {
     _jspx_dependants = new java.util.ArrayList<String>(3);
     _jspx_dependants.add("/index_header.html");
-    _jspx_dependants.add("/login.html");
+    _jspx_dependants.add("/login.jsp");
     _jspx_dependants.add("/Reg.html");
   }
 
@@ -86,33 +86,41 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</div>\n");
       out.write("\n");
       out.write("    \n");
-      out.write("<div class=\"modal-dialog\" style=\"opacity: 0.9; margin-top: 10%;\">\r\n");
-      out.write("    <div class=\"modal-content\">\r\n");
-      out.write("        <div class=\"modal-header\">\r\n");
-      out.write("            \r\n");
-      out.write("            <h1 class=\"text-center\">Login</h1>\r\n");
-      out.write("        </div>\r\n");
-      out.write("        <div class=\"modal-body\">\r\n");
-      out.write("            <form class=\"form col-md-12 center-block\" action=\"Login\" method=\"Post\">\r\n");
-      out.write("                <div class=\"form-group\">\r\n");
-      out.write("                    <input type=\"text\" class=\"form-control input-lg\" placeholder=\"Email\" name=\"Name\">\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"form-group\">\r\n");
-      out.write("                    <input type=\"password\" class=\"form-control input-lg\" placeholder=\"Password\" name=\"Password\">\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"form-group\">\r\n");
-      out.write("                    <button class=\"btn btn-primary btn-lg btn-block\">Sign In</button>\r\n");
-      out.write("                    <a data-toggle=\"modal\" data-target=\"#myModal\" style=\"color: #9CA6D2 !important;\">Register here </a><span style=\"margin-left:68%\"><a href=\"#\" style=\"color: #9CA6D2 !important;\">Need help?</a></span>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </form>\r\n");
-      out.write("        </div>\r\n");
-      out.write("        <div class=\"modal-footer\">\r\n");
-      out.write("            <div class=\"col-md-12\">\r\n");
-      out.write("                \r\n");
-      out.write("            </div>\t\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </div>\r\n");
-      out.write("</div>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+
+   String name = request.getParameter( "Name" );
+   session.setAttribute( "id", name );
+
+      out.write("\n");
+      out.write("<div class=\"modal-dialog\" style=\"opacity: 0.9; margin-top: 10%;\">\n");
+      out.write("    <div class=\"modal-content\">\n");
+      out.write("        <div class=\"modal-header\">\n");
+      out.write("\n");
+      out.write("            <h1 class=\"text-center\">Login</h1>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"modal-body\">\n");
+      out.write("            <form class=\"form col-md-12 center-block\" action=\"Login\" method=\"Post\">\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                    <input type=\"text\" class=\"form-control input-lg\" placeholder=\"Email\" name=\"Name\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                    <input type=\"password\" class=\"form-control input-lg\" placeholder=\"Password\" name=\"Password\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                    <button class=\"btn btn-primary btn-lg btn-block\">Sign In</button>\n");
+      out.write("                    <a data-toggle=\"modal\" data-target=\"#myModal\" style=\"color: #9CA6D2 !important;\">Register here </a><span style=\"margin-left:68%\"><a href=\"#\" style=\"color: #9CA6D2 !important;\">Need help?</a></span>\n");
+      out.write("                </div>\n");
+      out.write("            </form>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"modal-footer\">\n");
+      out.write("            <div class=\"col-md-12\">\n");
+      out.write("\n");
+      out.write("            </div>\t\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
       out.write("\n");
       out.write("    \n");
       out.write("\n");
