@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <%session.setAttribute( "id","");%>
-<%@ include file="index_header.html" %>
+<%@ include file="header.jsp" %>
 <div style="width:27%;float:left;height:100%">
     <h1>  </h1>
 </div>

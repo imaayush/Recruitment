@@ -49,7 +49,7 @@ public class Personal extends HttpServlet {
             ps.setString(4,Email);
             
             ps.executeUpdate();
-            response.sendRedirect("Personal.jsp");
+            response.sendRedirect("From.jsp");
             } catch (Exception e) {
                 out.print(e);
             }

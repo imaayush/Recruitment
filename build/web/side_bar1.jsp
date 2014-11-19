@@ -4,7 +4,7 @@
     Author     : Knight
 --%>
 
-<div style="width:25% ;float:left;height:100% ;background-color:#F5F5F5;">
+<div style="width:25% ;float:left;height:100%; position: fixed;">
     <ul class="list-group">
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>

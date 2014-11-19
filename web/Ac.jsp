@@ -37,7 +37,7 @@
         }
         if (pass.equals(upass) && "D".equals(status)) {
 
-            response.sendRedirect("Personal.jsp");
+            response.sendRedirect("From.jsp");
         } else if (pass.equals(upass) && "A".equals(status)) {
             response.sendRedirect("home.jsp");
         } else {
