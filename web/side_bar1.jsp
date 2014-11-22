@@ -8,24 +8,21 @@
     <ul class="list-group">
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Personal.jsp">Personal Details</a>
+            <a href="Personal.jsp">General</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Acadeamic.jsp">Academic Details</a>
+            <a href="Acadeamic.jsp">Education</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Traning.jsp">Training</a>
+            <a href="Traning.jsp">Skills</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
             <a href="Project.jsp">Projects</a>    
         </li>
-        <li class="list-group-item">
-            <span class="glyphicon glyphicon-ok"></span>
-            <a href="Skill.jsp">Computer Skills</a>
-        </li>
+        
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
             <a href="Experience.jsp">Experience</a>   
@@ -34,6 +31,10 @@
             <a href="Photo.jsp">Photo and Signature upload</a>
             <span class="glyphicon glyphicon-remove"></span>
 
+        </li>
+        <li class="list-group-item">
+            <span class="glyphicon glyphicon-ok"></span>
+            <a href="Skill.jsp">Resume</a>
         </li>
     </ul>
 

@@ -9,7 +9,8 @@
 <%@ page import="bean.GetInfo.*" %>  
 <%@ page import="bean.ConnectionProvider.*" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<link href="css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+<script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
 
 <%@ include file="header.jsp" %>
@@ -28,6 +29,9 @@
     String Grad = "";
     String InPG = "";
     String PG = "";
+    String Frameworks = "";
+    String Tools = "";
+    String Languages = "";
     id = (String) session.getAttribute("id");
     ResultSet rs = GetInfo.get(id);
 
@@ -38,13 +42,26 @@
         Age = rs.getString("Age");
         Add = rs.getString("Address");
         Father = rs.getString("Father");
+
+        InX = rs.getString("InX");
+        X = rs.getString("X");
+        InXII = rs.getString("InXII");
+        XII = rs.getString("XII");
+        InGrad = rs.getString("InGrad");
+        Grad = rs.getString("Grad");
+        InPG = rs.getString("InPG");
+        PG = rs.getString("PG");
+        Languages = rs.getString("Languages");
+        Tools = rs.getString("Tools");
+        Frameworks = rs.getString("Frameworks");
     }
 
 
 %>
 
 <div style="width:73% ;float:right;height:100% ; margin-left:2%;">
-    <form role="form" action="Personal" method="post"  class="form-horizontal" >
+    
+<form role="form" action="Personal" method="post"  class="form-horizontal" >
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -77,37 +94,51 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Father Name</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="inputPassword3" name="Father" value=<%=Father%>>
+                                <input type="text" class="form-control"  name="Father" value=<%out.print(Father);%>>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Age</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="inputPassword3" name="Age" value=<%=Age%>>
+                            <label for="inputPassword3" class="col-sm-2 control-label">Date of Birth</label>
+                            <div class="col-sm-10">
+                                <div  class="col-sm-2" style="margin-left:-2%; ">
+                                    <select name="date" class="form-control">
+                                        
+                                        <% for (int i = 31; i >0; i--) {%>
+                                        <option value="<%=i%>"><%=i%></option>
+                                        <%}%>
+                                        <option value="" selected="selected">---------</option>
+                                    </select>
+                                </div>
+                                <%@ include file="calender.jsp" %>
+
+                                
+
+                            </div>
+                        </div>       
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="col-sm-12">
+                                <button type="Submit" class="btn btn-primary" value="Save" name="general" >Save</button>
+
+
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
-                            <div class="col-sm-6">
-                                <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
-                            </div>
-                        </div>
+
 
                     </div>
-
-                    <div class="modal-footer">
-                        <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
-
-
-                        </div>
-                    </div>
-
 
                 </div>
-
             </div>
-        </div>
+  
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -163,7 +194,7 @@
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
+                            <button type="Submit" class="btn btn-primary" value="Save"  name ="education">Save</button>
 
 
                         </div>
@@ -173,6 +204,8 @@
 
             </div>
         </div>
+   
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -188,12 +221,10 @@
                             <span class="large darker">Frameworks</span>
                             <hr class="hr">
                             <div class="col-sm-10">
-                                <input type="text" class=" form-control" id="inputEmail3" name="Name" value=<%=Name%> >
+                                <input type="text"   value=<%=Frameworks%> data-role="tagsinput" name="frameworks" />
+
                                 <br>
-                                <div class="buttons" style="float:right;">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Save" clicked="Saving..">
-                                    <div class="clear"></div>
-                                </div>
+
                                 <br>
                             </div>
                         </div>
@@ -201,12 +232,9 @@
                             <span class="large darker">Tools & Libraries </span>
                             <hr class="hr">
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputPassword3" name="Email" value=<%=Email%> >
+                                <input type="text"   value=<%=Tools%> data-role="tagsinput" name="tools1" />
                                 <br>
-                                <div class="buttons" style="float:right;">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Save" clicked="Saving..">
-                                    <div class="clear"></div>
-                                </div>
+
                                 <br>
                             </div>
                         </div>
@@ -215,17 +243,23 @@
                             <hr class="hr">
 
                             <div class="col-sm-10" >
-                                <input type="text" class="form-control" id="inputPassword3" name="Mobile" value=<%=Mobile%>><br>
 
-                                <div class="buttons" style="float:right;">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Save" clicked="Saving..">
-                                    <div class="clear"></div>
-                                </div>
+
+                                <input type="text"   value=<%=Languages%> data-role="tagsinput" name="languages" />
 
 
 
                             </div>
                         </div>
+
+                        <div class="modal-footer">
+                            <div class="col-sm-12">
+                                <button type="Submit" class="btn btn-primary" value="Save"  name="skill">Save</button>
+
+
+                            </div>
+                        </div>
+
 
                     </div>
 
@@ -236,6 +270,8 @@
 
             </div>
         </div>    
+    
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -248,21 +284,23 @@
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="Name" value=<%=Name%> >
+                            <div class="col-sm-8">
+                                <input type="text" class=" form-control"  name="ProjectName"  >
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label"> Duration</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="Name" value=<%=Name%> >
+                            <div class="col-sm-10">
+                                <%@ include file="calender.jsp" %>
+                                <div class="col-sm-1" style="margin-left:-2%; ">__</div>
+                                <%@ include file="calender1.jsp" %>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
-                            <div class="col-sm-6">
-                                <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" rows="3" name="ProDescription"></textarea>
                             </div>
                         </div>
 
@@ -270,7 +308,7 @@
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
+                            <button type="Submit" class="btn btn-primary" value="save1" name="project" >Save</button>
 
 
                         </div>
@@ -281,6 +319,8 @@
 
             </div>
         </div>  
+    
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -296,32 +336,35 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Company * </label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="inputPassword3" name="Email" value=<%=Email%>>
+                                <input type="text" class="form-control" name="Cname" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Job Title * </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputPassword3" name="Mobile" value=<%=Mobile%> >
+                               <input type="text" class="form-control"  name="job"  >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Duration </label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputPassword3" name="Father" value=<%=Father%>>
+                            <div class="col-sm-10">
+                                <%@ include file="calender.jsp" %>
+                                <div class="col-sm-1" style="margin-left:-2%; ">__</div>
+                                <%@ include file="calender1.jsp" %>
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Description </label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
+                                <textarea class="form-control" rows="3" name="JDes"></textarea>
 
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Related Skills </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputPassword3" name="Age" value=<%=Age%>>
+                                 <input type="text"   data-role="tagsinput" name="Rskill" />
                             </div>
                         </div>
 
@@ -329,7 +372,7 @@
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
+                            <button type="Submit" class="btn btn-primary" value="save2"  name="experience">Save</button>
 
 
                         </div>
@@ -340,6 +383,9 @@
 
             </div>
         </div> 
+    
+  
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -356,27 +402,30 @@
                             <hr class="hr">
                             <div class="col-sm-8">
                                 <input type="text" class=" form-control" id="inputEmail3" name="Name" value=<%=Name%> >
-                                
+
                             </div>
-                                <div class="col-sm-4">
-                                <img src="..."  class="img-thumbnail">
-                                </div>
+                            <div class="col-lg-2 col-md-4 col-xs-6 thumb">
+
+
+                                <img class="img-thumbnail" src="http://placehold.it/400x300" alt="">
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <span class="large darker"> Signature  </span>
                             <hr class="hr">
                             <div class="col-sm-8">
                                 <input type="email" class="form-control" id="inputPassword3" name="Email" value=<%=Email%> >
-                                
+
 
                             </div>
-                                <div class="col-sm-2">
-                                <img src="..."  class="img-thumbnail">
-                                </div>
+                            <div class="col-lg-2 col-md-4 col-xs-6 thumb">
+                                <img src="http://placehold.it/400x300"  class="img-thumbnail">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <div class="col-sm-12">
-                                <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
+                                <button type="Submit" class="btn btn-primary" value="upload" name="photo"  >Save</button>
 
 
                             </div>
@@ -390,6 +439,9 @@
 
 
         </div>
+   
+    
+
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -412,8 +464,8 @@
                     </div>
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Save</button>
-                            <button type="Submit" class="btn btn-primary" value="Submit" >Submit</button>
+                            <button type="Submit" class="btn btn-primary" value="upload" name="resume" >Save</button>
+                            <button type="Submit" class="btn btn-primary" value="Submit" name="Submit">Submit</button>
 
                         </div>
                     </div>
@@ -424,10 +476,11 @@
 
 
         </div>
-</div>
+    
+</from>
 
+</div>
 <!-- Table -->
-</form>
 
 
 

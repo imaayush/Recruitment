@@ -13,15 +13,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+         <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/home_style.css">
-
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" >
+        <link rel="stylesheet" type="text/css" href="css/home_style.css" >
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/local.css" />
-        <script src="js/jquery-2.1.1.min.js "></script>
-        <script src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/local.css"  />
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <% String id = (String) session.getAttribute("id");
             String Status = "";
             String Name = "";
@@ -65,7 +64,7 @@
                         if (token== 2) {
                       
                %>
-               <%@include  file="side_nav.html" %>
+               <%@include  file="side_nav.jsp" %>
                <% }%>
                
                  <%                    
