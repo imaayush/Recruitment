@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<%session.setAttribute( "id","");%>
+<%if((String) session.getAttribute("id")!=null){
+    response.sendRedirect("home.jsp");
+}%>
+<%session.setAttribute( "token",0);%>
 <%@ include file="header.jsp" %>
 <div style="width:27%;float:left;height:100%">
     <h1>  </h1>

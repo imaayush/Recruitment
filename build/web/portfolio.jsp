@@ -13,35 +13,7 @@
 
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
 <%@ include file="header.jsp" %>
-<%
-    
-    String Email = "";
-    String Mobile = "";
-    String Age = "";
-    String Add = "";
-    String Father = "";
-    String InX = "";
-    String X = "";
-    String InXII = "";
-    String XII = "";
-    String InGrad = "";
-    String Grad = "";
-    String InPG = "";
-    String PG = "";
-  
-    ResultSet rs = GetInfo.get(id);
 
-    while (rs.next()) {
-        Name = rs.getString("NAME");
-        Email = rs.getString("EMAIL");
-        Mobile = rs.getString("Mobile");
-        Age = rs.getString("Age");
-        Add = rs.getString("Address");
-        Father = rs.getString("Father");
-    }
-
-
-%>
 <div style="width:75% ;float:left;height:95%;margin-left:18%; margin-top: -2% ">
     <form role="form" action="Personal" method="post"  class="form-horizontal" >
         <div class="row" >

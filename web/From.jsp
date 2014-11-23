@@ -12,56 +12,12 @@
 <link href="css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
 <script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
-
+<% session.setAttribute( "token", 1);%>
 <%@ include file="header.jsp" %>
-<%
-    Name = "";
-    String Email = "";
-    String Mobile = "";
-    String Age = "";
-    String Add = "";
-    String Father = "";
-    String InX = "";
-    String X = "";
-    String InXII = "";
-    String XII = "";
-    String InGrad = "";
-    String Grad = "";
-    String InPG = "";
-    String PG = "";
-    String Frameworks = "";
-    String Tools = "";
-    String Languages = "";
-    id = (String) session.getAttribute("id");
-    ResultSet rs = GetInfo.get(id);
-
-    while (rs.next()) {
-        Name = rs.getString("NAME");
-        Email = rs.getString("EMAIL");
-        Mobile = rs.getString("Mobile");
-        Age = rs.getString("Age");
-        Add = rs.getString("Address");
-        Father = rs.getString("Father");
-
-        InX = rs.getString("InX");
-        X = rs.getString("X");
-        InXII = rs.getString("InXII");
-        XII = rs.getString("XII");
-        InGrad = rs.getString("InGrad");
-        Grad = rs.getString("Grad");
-        InPG = rs.getString("InPG");
-        PG = rs.getString("PG");
-        Languages = rs.getString("Languages");
-        Tools = rs.getString("Tools");
-        Frameworks = rs.getString("Frameworks");
-    }
-
-
-%>
 
 <div style="width:73% ;float:right;height:100% ; margin-left:2%;">
-    
-<form role="form" action="Personal" method="post"  class="form-horizontal" >
+
+    <form role="form" action="Personal" method="post"  class="form-horizontal" >
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -102,8 +58,8 @@
                             <div class="col-sm-10">
                                 <div  class="col-sm-2" style="margin-left:-2%; ">
                                     <select name="date" class="form-control">
-                                        
-                                        <% for (int i = 31; i >0; i--) {%>
+
+                                        <% for (int i = 31; i > 0; i--) {%>
                                         <option value="<%=i%>"><%=i%></option>
                                         <%}%>
                                         <option value="" selected="selected">---------</option>
@@ -111,33 +67,33 @@
                                 </div>
                                 <%@ include file="calender.jsp" %>
 
-                                
+
 
                             </div>
                         </div>       
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
-                                <div class="col-sm-6">
-                                    <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <div class="col-sm-12">
-                                <button type="Submit" class="btn btn-primary" value="Save" name="general" >Save</button>
-
-
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" rows="3" name="Add"><%=Add%></textarea>
                             </div>
                         </div>
-
 
                     </div>
 
+                    <div class="modal-footer">
+                        <div class="col-sm-12">
+                            <button type="Submit" class="btn btn-primary" value="Save" name="general" >Save</button>
+
+
+                        </div>
+                    </div>
+
+
                 </div>
+
             </div>
-  
+        </div>
+
 
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
@@ -204,7 +160,7 @@
 
             </div>
         </div>
-   
+
 
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
@@ -270,7 +226,7 @@
 
             </div>
         </div>    
-    
+
 
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
@@ -319,7 +275,7 @@
 
             </div>
         </div>  
-    
+
 
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
@@ -342,7 +298,7 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Job Title * </label>
                             <div class="col-sm-8">
-                               <input type="text" class="form-control"  name="job"  >
+                                <input type="text" class="form-control"  name="job"  >
                             </div>
                         </div>
                         <div class="form-group">
@@ -364,7 +320,7 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Related Skills </label>
                             <div class="col-sm-8">
-                                 <input type="text"   data-role="tagsinput" name="Rskill" />
+                                <input type="text"   data-role="tagsinput" name="Rskill" />
                             </div>
                         </div>
 
@@ -383,65 +339,53 @@
 
             </div>
         </div> 
-    
-  
 
+    </form>
+
+    <form action="photo.jsp" method="post"     enctype="multipart/form-data">
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
                     <div class="shape">
-                        <div class="shape-text">Photo and Signature </div>
+                        <div class="shape-text">Photo </div>
                     </div>
                     <div class="listing-content">
+
                         <br>
-
-
-
                         <div class="form-group">
-                            <span class="large darker">Photo</span>
-                            <hr class="hr">
+                            <label for="inputPassword3" class="col-sm-2 control-label">photo</label>
                             <div class="col-sm-8">
-                                <input type="text" class=" form-control" id="inputEmail3" name="Name" value=<%=Name%> >
-
+                                <input type="file" name="file" ><br><br><br>
+                               
                             </div>
                             <div class="col-lg-2 col-md-4 col-xs-6 thumb">
-
-
-                                <img class="img-thumbnail" src="http://placehold.it/400x300" alt="">
-
+                                <img class="img-thumbnail" src=<%=Photo%> alt="http://placehold.it/400x300">
                             </div>
+                             
+                      
                         </div>
-                        <div class="form-group">
-                            <span class="large darker"> Signature  </span>
-                            <hr class="hr">
-                            <div class="col-sm-8">
-                                <input type="email" class="form-control" id="inputPassword3" name="Email" value=<%=Email%> >
-
-
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 thumb">
-                                <img src="http://placehold.it/400x300"  class="img-thumbnail">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col-sm-12">
-                                <button type="Submit" class="btn btn-primary" value="upload" name="photo"  >Save</button>
-
-
-                            </div>
-                        </div>
-
+                       
 
                     </div>
+                    
+                            
+
+                    <div class="modal-footer" style="margin-top:10%;">
+                            <div class="col-sm-12">
+                                <button type="Submit" class="btn btn-primary" value="Save"  name="skill">Save</button>
+
+
+                            </div>
+                        </div>
 
                 </div>
             </div>       
 
 
         </div>
-   
-    
 
+    </form>   
+    <form action="resume.jsp" method="post"     enctype="multipart/form-data">
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default">
@@ -454,7 +398,7 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Resume </label>
                             <div class="col-sm-8">
-                                <input type="file" >
+                                <input type="file" name="file" >
                             </div>
                         </div>
 
@@ -464,8 +408,8 @@
                     </div>
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="upload" name="resume" >Save</button>
-                            <button type="Submit" class="btn btn-primary" value="Submit" name="Submit">Submit</button>
+                            <button type="Submit" class="btn btn-primary" value="Upload File" name="resume" >Save</button>
+
 
                         </div>
                     </div>
@@ -476,8 +420,8 @@
 
 
         </div>
-    
-</from>
+
+        </from>
 
 </div>
 <!-- Table -->

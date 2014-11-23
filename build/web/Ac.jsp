@@ -12,12 +12,12 @@
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>
-
+<%@ include file="header.jsp" %>
 <%
     String uemail = request.getParameter("Name");
     String upass = request.getParameter("Password");
-               
-   session.setAttribute( "id", uemail);
+    String e1=uemail   ; 
+   
 
     uemail = "'" + uemail + "'";
     out.print("Welcome");
@@ -36,11 +36,16 @@
 
         }
         if (pass.equals(upass) && "D".equals(status)) {
-
-            response.sendRedirect("From.jsp");
+            session.setAttribute( "id", e1);
+            response.sendRedirect("verify.jsp");
+            session.setAttribute( "token", 0);
+            
         } else if (pass.equals(upass) && "A".equals(status)) {
+            session.setAttribute( "id", e1);
             response.sendRedirect("home.jsp");
+            session.setAttribute( "token", 2);
         } else {
+            session.setAttribute( "id", null);
             response.sendRedirect("index.jsp");
         }
     } catch (Exception e) {

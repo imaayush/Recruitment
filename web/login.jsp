@@ -1,10 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : Nov 17, 2014, 1:37:33 PM
-    Author     : Knight
---%>
-
-
 <div class="modal-dialog" style="opacity: 0.9; margin-top: 10%;">
     <div class="modal-content">
         <div class="modal-header">
@@ -13,23 +6,36 @@
         </div>
         <div class="modal-body">
             <form class="form col-md-12 center-block" action="Ac.jsp" method="Post">
-                <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Email" name="Name">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control input-lg" placeholder="Password" name="Password">
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                    <input type="text" class="form-control input-lg" placeholder="Email" autocomplete="off" name="Name">
                 </div>
 
+                <span class="help-block"></span>
+                <span class="help-block"></span>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                    <input type="password" class="form-control input-lg" placeholder="Password" autocomplete="off" name="Password">
+                </div>
+                <span class="help-block"></span>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-                    <a data-toggle="modal" data-target="#myModal" style="color: #9CA6D2 !important;">Register here </a><span style="margin-left:68%"><a href="#" style="color: #9CA6D2 !important;">Need help?</a></span>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">Remember me
+                        </label>
+                        <span style="margin-left:55%"><a href="Forget.jsp" style="color: #2C4FE6  !important;">Forgot password?</a></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="Submit" value ="login" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                    <br>Don't have an account? <a data-toggle="modal" data-target="#myModal" style="color: #2C4FE6  !important;">Register here</a>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <div class="col-md-12">
 
-            </div>	
         </div>
     </div>
 </div>

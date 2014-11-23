@@ -37,4 +37,12 @@
             30
         </session-timeout>
     </session-config>
+     <context-param> 
+    <description>Location to store uploaded file</description> 
+    <param-name>file-upload</param-name> 
+    <param-value>
+        C:/Users/Knight/Documents/NetBeansProjects/Recruitment/web/images/Resume/
+         
+     </param-value> 
+</context-param>
 </web-app>

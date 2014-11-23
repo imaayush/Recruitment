@@ -8,12 +8,7 @@
 
 <ul class="nav navbar-nav side-nav">
     
-    <li> <div class="col-lg-6 col-md-4 col-xs-6 thumb"><br>
-            <img src="http://placehold.it/400x300"  class="img-thumbnail">
-            <br>
-            <br>
-            <hr class="hr" style="border-color: black;">
-        </div>
+    <li> 
     </li>
      <li ><a href="home.jsp"><i class="fa fa-bullseye"></i> Dashboard</a></li>
      <li ><a href="Profile.jsp"><i class="fa fa-user"></i> Profile</a></li>

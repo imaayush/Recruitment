@@ -4,26 +4,19 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<form role="form" action="Basic" method="Get" >
+<form role="form" action="Basic" method="Post" >
     <div class="form-group">
         <label for="Name">Name</label>
-        <input type="Name" class="form-control" id="Name" placeholder="Enter name" name="name">
+        <input type="Name" class="form-control" id="Name" placeholder="Enter name" name="name" max="25"  required >
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"  max="25" name="email" required>
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  name="password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword2">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Conform Password" name="CoPassword">
-    </div>
+   
     <div class="form-group">
         <label for="mobile">Mobile no.</label>
-        <input type="text" class="form-control" id="mobile" placeholder="Enter mobile no ." name="mobile">
+        <input type="number" class="form-control" id="mobile" placeholder="Enter mobile no ." name="mobile" required>
     </div>
 
 

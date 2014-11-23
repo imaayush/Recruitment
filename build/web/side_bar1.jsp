@@ -28,7 +28,7 @@
             <a href="Experience.jsp">Experience</a>   
         </li>
         <li class="list-group-item">
-            <a href="Photo.jsp">Photo and Signature upload</a>
+            <a href="Photo.jsp">Photo</a>
             <span class="glyphicon glyphicon-remove"></span>
 
         </li>
