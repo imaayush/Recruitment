@@ -97,6 +97,7 @@ session.setAttribute( "token",0);
     String Password="";
     String Status="";
     String Resume="";
+   
     if (session.getAttribute("id") != null) {
         String id = (String) session.getAttribute("id");
         ResultSet rs = GetInfo.get(id);
@@ -125,9 +126,10 @@ session.setAttribute( "token",0);
             Status= rs.getString("Status");
             Resume =rs.getString("Resume_Path");
         }
+        
     }
     else{
-      response.sendRedirect("index.jsp");
+     
     }
 
       out.write('\n');
@@ -155,12 +157,8 @@ session.setAttribute( "token",0);
  String id = (String) session.getAttribute("id");
             
             int token = (int) session.getAttribute("token");
-            if ("".equals(id) == false) {
-                
-                
-
-            }else{
-
+            if (token == 0) {
+      
 
         
       out.write("\n");
@@ -203,10 +201,10 @@ session.setAttribute( "token",0);
       out.write("     <li ><a href=\"Profile.jsp\"><i class=\"fa fa-user\"></i> Profile</a></li>\n");
       out.write("    <li><a href=\"portfolio.jsp\"><i class=\"fa fa-tasks\"></i> Portfolio</a></li>                    \n");
       out.write("    <li><a href=\"blog.jsp\"><i class=\"fa fa-globe\"></i> Blog</a></li>\n");
-      out.write("    <li><a href=\"forms.jsp\"><i class=\"fa fa-list-ol\"></i> Forms</a></li>\n");
-      out.write("    <li><a href=\"typography.html\"><i class=\"fa fa-font\"></i>pply For Jobs</a></li>\n");
-      out.write("    <li><a href=\"bootstrap-elements.html\"><i class=\"fa fa-list-ul\"></i>Practice</a></li>\n");
-      out.write("    <li><a href=\"bootstrap-grid.html\"><i class=\"fa fa-table\"></i > Time Manage</a></li>                    \n");
+      out.write("    \n");
+      out.write("    <li><a href=\"job.jsp\"><i class=\"fa fa-font\"></i>pply For Jobs</a></li>\n");
+      out.write("    <li><a href=\"practice.jsp\"><i class=\"fa fa-list-ul\"></i>Practice</a></li>\n");
+      out.write("    <li><a href=\"time.jsp\"><i class=\"fa fa-table\"></i > Time Manage</a></li>                    \n");
       out.write("</ul>\n");
       out.write(" ");
       out.write("\n");
@@ -399,7 +397,7 @@ session.setAttribute( "token",0);
       out.write("</div>\n");
       out.write("<div class=\"modal-footer\">\n");
       out.write("    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n");
-      out.write("    <button type=\"Submit\" value =\"Submit\" class=\"btn btn-primary\">Submit</button>\n");
+      out.write("    <button type=\"Submit\" value =\"Reg\" class=\"btn btn-primary\">Submit</button>\n");
       out.write("\n");
       out.write("\n");
       out.write("</div>\n");

@@ -30,28 +30,44 @@ public class Basic extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String uname = request.getParameter("name");
-            String upass= "AT"+(int)(Math.random()*100000); 
-            String uemail = request.getParameter("email");
-            String mobile = request.getParameter("mobile");
-            out.print("Welcome");
+
             try {
-                Connection conn = ConnectionProvider.getCon();
-                String query = "insert into INFO (ID,Name,Email,Mobile,Status,Password) values(?,?,?,?,?,?)";
-                PreparedStatement ps = conn.prepareStatement(query);
-                ps.setInt(1, 1);
-                ps.setString(2, uname);
-                ps.setString(3, uemail);
-                ps.setString(4, mobile);
-                ps.setString(5, "D");
-                ps.setString(6, upass);
-                ps.executeUpdate();
-               Email.Sendmail(uemail ,upass);
-                
+                String uname = request.getParameter("name");
+                String upass = "AT" + (int) (Math.random() * 100000);
+                String uemail = request.getParameter("email");
+                String mobile = request.getParameter("mobile");
+
+                if (request.getParameter("Reg") != null) {
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into INFO (ID,Name,Email,Mobile,Status,Password,Age) values(?,?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setInt(1, 1);
+                    ps.setString(2, uname);
+                    ps.setString(3, uemail);
+                    ps.setString(4, mobile);
+                    ps.setString(5, "D");
+                    ps.setString(6, upass);
+                    ps.setString(7, "19-Jan-1994");
+                    ps.executeUpdate();
+                    Email.Sendmail(uemail, upass);
+                    response.sendRedirect("verification.jsp");
+                } else if (request.getParameter("Forgot") != null) {
+                    String PG = request.getParameter("PG");
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "update INFO set Password=? ,Status=? where EMAIL= ?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, upass);
+                    ps.setString(2, "D");
+                    ps.setString(3, uemail);
+                    ps.executeUpdate();
+                    Email.Sendmail(uemail, upass);
+                    response.sendRedirect("verify.jsp");
+                }
+
             } catch (Exception e) {
                 out.print(e);
             }
-            
+
         }
     }
 

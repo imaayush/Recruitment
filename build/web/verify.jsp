@@ -28,18 +28,24 @@
                         <br>
 
 
-                        
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control"  name="email"  placeholder="Email" required >
+                            </div>
+                            
+                        </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">Old Password</label>
                             <div class="col-sm-6">
-                                <input type="Password" class=" form-control"  name="InX"  placeholder="Old Password" required >
+                                <input type="Password" class=" form-control"  name="OldPassword"  placeholder="Old Password" required >
                             </div>
                             
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">New Password</label>
                             <div class="col-sm-6">
-                                <input type="Password" class=" form-control"  name="InXII"  placeholder="New Password" required >
+                                <input type="Password" class=" form-control"  name="NewPassword"  placeholder="New Password" required >
                             </div>
                             
                         </div>
@@ -55,7 +61,7 @@
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Save"  name ="education">Submit</button>
+                            <button type="Submit" class="btn btn-primary" value="Save"  name ="change">Submit</button>
 
 
                         </div>

@@ -29,11 +29,7 @@
             
             int token = (int) session.getAttribute("token");
             if (token == 0) {
-                
-                
-
-            
-
+      
 
         %>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>

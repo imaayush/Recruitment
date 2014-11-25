@@ -16,7 +16,7 @@
 <%@ include file="header.jsp" %>
 <div style="width:75% ;height:100% ; margin-left:20%">
 
-    <form role="form" action="Personal" method="post"  class="form-horizontal" >
+    <form role="form" action="Basic" method="post"  class="form-horizontal" >
         
 
 
@@ -30,32 +30,17 @@
 
                         
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">Old Password</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
                             <div class="col-sm-6">
-                                <input type="Password" class=" form-control"  name="InX"  placeholder="Old Password" required >
+                                <input type="text" class=" form-control"  name="email"  placeholder="Email" required >
                             </div>
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">New Password</label>
-                            <div class="col-sm-6">
-                                <input type="Password" class=" form-control"  name="InXII"  placeholder="New Password" required >
-                            </div>
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">Conform Password</label>
-                            <div class="col-sm-6">
-                                <input type="Password" class=" form-control"  name="CPassword" placeholder="Conform Password" required >
-                            </div>
-                            
-                        </div>
+                        
                         
                     </div>
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Save"  name ="education">Submit</button>
+                            <button type="Submit" class="btn btn-primary" value="Save"  name ="Forgot">Submit</button>
 
 
                         </div>

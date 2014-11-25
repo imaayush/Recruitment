@@ -12,11 +12,21 @@
 <link href="css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
 <script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
-<% session.setAttribute( "token", 1);%>
+<% session.setAttribute("token", 1);%>
 <%@ include file="header.jsp" %>
 
-<div style="width:73% ;float:right;height:100% ; margin-left:2%;">
+<div style="width:73% ;float:left;height:100% ; margin-left:27%; margin-top: -2%;">
 
+    <div class="right" style="width:10%; float:right; margin-top:5%; margin-right:5%;  ">
+        <div id="done-editing-sticky-wrapper" class="sticky-wrapper" style="position:fixed;">
+            <div class="yellow-bg less-margin-2" id="done-editing">
+                <div class="regular dark">
+                    Don't forget to save your changes.
+                </div>
+                <a href="Profile.jsp" class="button btn-blue inline-block less-margin-2">Done Editing</a>
+            </div>
+        </div> <!-- end yellow-bg -->
+    </div>
     <form role="form" action="Personal" method="post"  class="form-horizontal" >
         <div class="row">
             <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
@@ -56,16 +66,8 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Date of Birth</label>
                             <div class="col-sm-10">
-                                <div  class="col-sm-2" style="margin-left:-2%; ">
-                                    <select name="date" class="form-control">
 
-                                        <% for (int i = 31; i > 0; i--) {%>
-                                        <option value="<%=i%>"><%=i%></option>
-                                        <%}%>
-                                        <option value="" selected="selected">---------</option>
-                                    </select>
-                                </div>
-                                <%@ include file="calender.jsp" %>
+                                <%@ include file="Date_Birth.jsp" %>
 
 
 
@@ -237,7 +239,6 @@
                     <div class="listing-content">
                         <br>
 
-
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-8">
@@ -248,9 +249,8 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label"> Duration</label>
                             <div class="col-sm-10">
-                                <%@ include file="calender.jsp" %>
-                                <div class="col-sm-1" style="margin-left:-2%; ">__</div>
-                                <%@ include file="calender1.jsp" %>
+                                <%@ include file="Project_cal.jsp" %>
+
                             </div>
                         </div>
                         <div class="form-group">
@@ -269,7 +269,40 @@
 
                         </div>
                     </div>
+                    <div class="listing-content" style="background-color:#ffcccc; ">
+                        <br>
+                        <%@ include file="Select_Project.jsp" %>
+                        <div >
+                            <button type="button" class="close" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-8">
+                                <%=rs.getString("NAME")%>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label"> Duration</label>
+                            <div class="col-sm-10">
+                                <%=rs.getString("STARTDATE")%>&nbsp;to&nbsp;<%=rs.getString("ENDDATE")%>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-8">
+                                <%=rs.getString("DESCRIPTION")%>
+                            </div>
+                        </div>
+                        <hr class="hr">
+                        <%}
+
+                            } else {
+
+                            }%>
+                    </div>
 
                 </div>
 
@@ -304,9 +337,8 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Duration </label>
                             <div class="col-sm-10">
-                                <%@ include file="calender.jsp" %>
-                                <div class="col-sm-1" style="margin-left:-2%; ">__</div>
-                                <%@ include file="calender1.jsp" %>
+                                <%@ include file="job_cal.jsp" %>
+
 
                             </div>
                         </div>
@@ -334,7 +366,56 @@
                         </div>
                     </div>
 
+                    <div class="listing-content" style="background-color: yellow;">
+                        <br>
 
+
+
+
+                        <%@ include file="EXPERIENCE.jsp" %>
+                        <div >
+                            <button type="button" class="close" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Company </label>
+                            <div class="col-sm-8">
+                                <%=rs.getString("COMPANY")%>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Job Title</label>
+                            <div class="col-sm-8">
+                                <%=rs.getString("job")%>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label"> Duration</label>
+                            <div class="col-sm-10">
+                                <%=rs.getString("STARTDATE")%>&nbsp;to&nbsp;<%=rs.getString("ENDDATE")%>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-8">
+                                <%=rs.getString("DESCRIPTION")%>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Related Skills</label>
+                            <div class="col-sm-8">
+                                <span class="col-sm-4"> <%=rs.getString("RSKILL")%></span>
+                            </div>
+                        </div>
+                        <hr class="hr">
+                        <%}
+
+                            } else {
+
+                            }%>
+
+                    </div>
                 </div>
 
             </div>
@@ -356,27 +437,27 @@
                             <label for="inputPassword3" class="col-sm-2 control-label">photo</label>
                             <div class="col-sm-8">
                                 <input type="file" name="file" ><br><br><br>
-                               
+
                             </div>
-                            <div class="col-lg-2 col-md-4 col-xs-6 thumb">
+                            <div class="col-lg-2 col-md-2 col-xs-6 thumb">
                                 <img class="img-thumbnail" src=<%=Photo%> alt="http://placehold.it/400x300">
                             </div>
-                             
-                      
+
+
                         </div>
-                       
+
 
                     </div>
-                    
-                            
+
+
 
                     <div class="modal-footer" style="margin-top:10%;">
-                            <div class="col-sm-12">
-                                <button type="Submit" class="btn btn-primary" value="Save"  name="skill">Save</button>
+                        <div class="col-sm-12">
+                            <button type="Submit" class="btn btn-primary" value="Save"  name="skill">Save</button>
 
 
-                            </div>
                         </div>
+                    </div>
 
                 </div>
             </div>       

@@ -16,6 +16,10 @@
         <servlet-name>Personal</servlet-name>
         <servlet-class>Personal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>verify</servlet-name>
+        <servlet-class>verify</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Basic</servlet-name>
         <url-pattern>/Basic</url-pattern>
@@ -32,17 +36,21 @@
         <servlet-name>Personal</servlet-name>
         <url-pattern>/Personal</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verify</servlet-name>
+        <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-     <context-param> 
-    <description>Location to store uploaded file</description> 
-    <param-name>file-upload</param-name> 
-    <param-value>
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
         C:/Users/Knight/Documents/NetBeansProjects/Recruitment/web/images/Resume/
          
-     </param-value> 
-</context-param>
+     </param-value>
+    </context-param>
 </web-app>

@@ -27,9 +27,17 @@
     String Tools = "";
     String Languages = "";
     String Photo = "";
-    String Password="";
-    String Status="";
-    String Resume="";
+    String Password = "";
+    String Status = "";
+    String Resume = "";
+    String date = "";
+    String month = "";
+    String year = "";
+    String[] birth = new String[3];
+    birth[0] = "";
+    birth[1] = "";
+    birth[2] = "";
+    
     if (session.getAttribute("id") != null) {
         String id = (String) session.getAttribute("id");
         ResultSet rs = GetInfo.get(id);
@@ -54,12 +62,17 @@
             Tools = rs.getString("Tools");
             Frameworks = rs.getString("Frameworks");
             Photo = rs.getString("Photo_Path");
-            Password= rs.getString("Password");
-            Status= rs.getString("Status");
-            Resume =rs.getString("Resume_Path");
+            Password = rs.getString("Password");
+            Status = rs.getString("Status");
+            Resume = rs.getString("Resume_Path");
+            Age = rs.getString("Age");
         }
-    }
-    else{
-     
+
+         birth = Age.split("-");
+        date = birth[0];
+        month = birth[1];
+        year = birth[2];
+        
+    } else {
     }
 %>

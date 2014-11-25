@@ -35,7 +35,7 @@
             status = rs.getString("Status");
 
         }
-        if (pass.equals(upass) && "D".equals(status)) {
+         if (pass.equals(upass) && "D".equals(status)) {
             session.setAttribute( "id", e1);
             response.sendRedirect("verify.jsp");
             session.setAttribute( "token", 0);
