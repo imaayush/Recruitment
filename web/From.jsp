@@ -273,7 +273,7 @@
                         <br>
                         <%@ include file="Select_Project.jsp" %>
                         <div >
-                            <button type="button" class="close" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <button type="Submit" class="close" name="Delete_Pro" value=<%=rs.getString("ID")%>><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 
                         </div>
 
@@ -374,7 +374,7 @@
 
                         <%@ include file="EXPERIENCE.jsp" %>
                         <div >
-                            <button type="button" class="close" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <button type="Submit" class="close" name="Delete_Exp" value=<%=rs.getString("ID")%> ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 
                         </div>
                         <div class="form-group">
@@ -439,7 +439,7 @@
                                 <input type="file" name="file" ><br><br><br>
 
                             </div>
-                            <div class="col-lg-2 col-md-2 col-xs-6 thumb">
+                            <div class="col-lg-2 col-md-4 col-xs-6 thumb">
                                 <img class="img-thumbnail" src=<%=Photo%> alt="http://placehold.it/400x300">
                             </div>
 

@@ -8,24 +8,26 @@
 <div id="demo">
     <ul  class="nav navbar-nav navbar-right navbar-user">
         <li  class="dropdown messages-dropdown" >
-            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+            <%@include file="selecte_message.jsp" %>
+            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"><i class="fa fa-envelope"></i> Messages <span class="badge"><%=columnsNumber/6%></span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li class="dropdown-header">2 New Messages</li>
+                
+                <li class="dropdown-header"><%=columnsNumber/6%> New Messages</li>
+                <%while (rs.next()) {%>
                 <li class="message-preview">
-                    <a href="#">
+                    <a href="Mail_box.jsp">
                         <span class="avatar"><i class="fa fa-bell"></i></span>
-                        <span class="message">Security alert</span>
+                        <span class="message"><%=rs.getString("SUBJECT")%></span>
                     </a>
                 </li>
                 <li class="divider"></li>
-                <li class="message-preview">
-                    <a href="#">
-                        <span class="avatar"><i class="fa fa-bell"></i></span>
-                        <span class="message">Security alert</span>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                <%}
+
+                            } else {
+
+                            }%>
+                
+                <li><a href="Mail_box.jsp">Go to Inbox <span class="badge"><%=columnsNumber/6%></span></a></li>
             </ul>
         </li>
         <li class="dropdown user-dropdown">

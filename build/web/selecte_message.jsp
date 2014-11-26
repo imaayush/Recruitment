@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSetMetaData"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="bean.ConnectionProvider"%>
@@ -10,18 +11,22 @@
     String STARTDATE = "";
     String ENDDATE = "";
     int num = 0;
+    int columnsNumber =0;
     if (session.getAttribute("id") != null) {
         String id2 = (String) session.getAttribute("id");
         Connection conn = ConnectionProvider.getCon();
         String query = "select*from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'";
         PreparedStatement ps = conn.prepareStatement(query);
-                                // ps.setInt(1,1);
+        // ps.setInt(1,1);
         // ps.setString(1,uemail);
         ResultSet rs = ps.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+
+         columnsNumber = rsmd.getColumnCount();
         String pass = null;
         String status = null;
 
-        while (rs.next()) {
-            
+        
+
 
 %>

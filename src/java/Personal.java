@@ -187,6 +187,30 @@ public class Personal extends HttpServlet {
                         response.sendRedirect("index.jsp");
                         
                     }
+                }else if(request.getParameter("Delete_Exp") !=null){
+                    
+                        String delete= request.getParameter("Delete_Exp") ;
+                        Connection conn = ConnectionProvider.getCon();
+                        String query = "DELETE FROM EXPERIENCE  WHERE ID =?";
+                        PreparedStatement ps = conn.prepareStatement(query);
+                        ps.setString(1,delete);
+                        ;
+
+                        ps.executeUpdate();
+                        conn.close();
+                         response.sendRedirect("From.jsp");
+                }else if(request.getParameter("Delete_Pro") !=null){
+                    
+                        String delete= request.getParameter("Delete_Pro") ;
+                        Connection conn = ConnectionProvider.getCon();
+                        String query = "DELETE FROM PROJECT_INFO  WHERE ID =?";
+                        PreparedStatement ps = conn.prepareStatement(query);
+                        ps.setString(1,delete);
+                        ;
+
+                        ps.executeUpdate();
+                        conn.close();
+                         response.sendRedirect("From.jsp");
                 }
 
             } catch (Exception e) {
