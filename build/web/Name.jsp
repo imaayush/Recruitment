@@ -9,10 +9,10 @@
     <ul  class="nav navbar-nav navbar-right navbar-user">
         <li  class="dropdown messages-dropdown" >
             <%@include file="selecte_message.jsp" %>
-            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"><i class="fa fa-envelope"></i> Messages <span class="badge"><%=columnsNumber/6%></span> <b class="caret"></b></a>
+            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"><i class="fa fa-envelope"></i> Messages <span class="badge"><%=count%></span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 
-                <li class="dropdown-header"><%=columnsNumber/6%> New Messages</li>
+                <li class="dropdown-header"><%=count%> New Messages</li>
                 <%while (rs.next()) {%>
                 <li class="message-preview">
                     <a href="Mail_box.jsp">
@@ -27,7 +27,7 @@
 
                             }%>
                 
-                <li><a href="Mail_box.jsp">Go to Inbox <span class="badge"><%=columnsNumber/6%></span></a></li>
+                <li><a href="Mail_box.jsp">Go to Inbox <span class="badge"><%=count%></span></a></li>
             </ul>
         </li>
         <li class="dropdown user-dropdown">

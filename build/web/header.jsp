@@ -69,7 +69,7 @@
         </nav>
 <%                    
             
-                        if (token== 1) {
+                 if(token==1){
                       
                %>
                <%@include  file="side_bar1.jsp" %>

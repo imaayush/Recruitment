@@ -6,22 +6,36 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
+    if (request.getParameter("Job") != null) {
+        if (session.getAttribute("id") != null) {
+            String id1 = (String) session.getAttribute("id");
+            String job = request.getParameter("Job");
+            Connection conn = ConnectionProvider.getCon();
+            String query = "insert into LIST_APPLICATION (ID,APPLICATION,STATUS,JOB) values(?,?,?,?)";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, 1);
+            ps.setString(2, id1);
+            ps.setString(3, "Interview");
+            ps.setString(4, job);
 
-    if (session.getAttribute("id") != null) {
-        String id1 = (String) session.getAttribute("id");
-         String job = request.getParameter("Job");
-        Connection conn = ConnectionProvider.getCon();
-        String query = "insert into LIST_APPLICATION (ID,APPLICATION,STATUS,JOB) values(?,?,?,?)";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setInt(1, 1);
-        ps.setString(2, id1);
-        ps.setString(3, "Interview");
-        ps.setString(4, job);
-        
-        ps.executeUpdate();
-        response.sendRedirect("job.jsp");}
-    else{
-        
+            ps.executeUpdate();
+            response.sendRedirect("job.jsp");
+        } else {
+
+        }
+    } else if (request.getParameter("Job_Remove") != null) {
+        if (session.getAttribute("id") != null) {
+            String id1 = (String) session.getAttribute("id");
+            String job = request.getParameter("Job_Remove");
+            Connection conn = ConnectionProvider.getCon();
+            String query = "delete from job where id ="+"'"+job+"'";
+            PreparedStatement ps = conn.prepareStatement(query);
+           
+
+            ps.executeUpdate();
+            response.sendRedirect("list_job.jsp");
+        } else {
+
+        }
     }
-
 %>

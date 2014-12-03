@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +44,7 @@ public class Personal extends HttpServlet {
                 String skill = request.getParameter("skill");
                 String project = request.getParameter("project");
                 String experience = request.getParameter("experience");
-                String change=request.getParameter("change");
+                String change = request.getParameter("change");
                 String photo = request.getParameter("photo");
                 String resume = request.getParameter("resume");
                 String submit = request.getParameter("submit");
@@ -159,7 +161,7 @@ public class Personal extends HttpServlet {
                     conn.close();
                     response.sendRedirect("From.jsp");
 
-                } else if ( change!= null) {
+                } else if (change != null) {
                     String OldPassword = request.getParameter("OldPassword");
                     String Pass1 = "";
 
@@ -178,39 +180,143 @@ public class Personal extends HttpServlet {
                         PreparedStatement ps = conn.prepareStatement(query);
                         ps.setString(1, NewPassword);
                         ps.setString(2, "A");
-                        ps.setString(3,(String) request.getParameter("email") );
+                        ps.setString(3, (String) request.getParameter("email"));
 
                         ps.executeUpdate();
                         conn.close();
                         response.sendRedirect("home.jsp");
                     } else {
                         response.sendRedirect("index.jsp");
-                        
+
                     }
-                }else if(request.getParameter("Delete_Exp") !=null){
-                    
-                        String delete= request.getParameter("Delete_Exp") ;
-                        Connection conn = ConnectionProvider.getCon();
-                        String query = "DELETE FROM EXPERIENCE  WHERE ID =?";
-                        PreparedStatement ps = conn.prepareStatement(query);
-                        ps.setString(1,delete);
-                        ;
+                } else if (request.getParameter("Delete_Exp") != null) {
 
-                        ps.executeUpdate();
-                        conn.close();
-                         response.sendRedirect("From.jsp");
-                }else if(request.getParameter("Delete_Pro") !=null){
-                    
-                        String delete= request.getParameter("Delete_Pro") ;
-                        Connection conn = ConnectionProvider.getCon();
-                        String query = "DELETE FROM PROJECT_INFO  WHERE ID =?";
-                        PreparedStatement ps = conn.prepareStatement(query);
-                        ps.setString(1,delete);
-                        ;
+                    String delete = request.getParameter("Delete_Exp");
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "DELETE FROM EXPERIENCE  WHERE ID =?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, delete);
+                    ;
 
-                        ps.executeUpdate();
-                        conn.close();
-                         response.sendRedirect("From.jsp");
+                    ps.executeUpdate();
+                    conn.close();
+                    response.sendRedirect("From.jsp");
+                } else if (request.getParameter("Delete_Pro") != null) {
+
+                    String delete = request.getParameter("Delete_Pro");
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "DELETE FROM PROJECT_INFO  WHERE ID =?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, delete);
+                    ;
+
+                    ps.executeUpdate();
+                    conn.close();
+                    response.sendRedirect("From.jsp");
+                } else if (request.getParameter("sendMail") != null) {
+                    String Name_sender = request.getParameter("Name_sender");
+                    String Email_sender = request.getParameter("Email_sender");
+                    String Email_reciver = request.getParameter("Email_reciver");
+                    String subject = request.getParameter("subject");
+                    String body = request.getParameter("body");
+                    Date date = new Date();
+                    SimpleDateFormat ft = new SimpleDateFormat(" dd/MM hh:mm a ");
+                    String time1 = (ft.format(date)).toString();
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME) values(?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, Email_sender);
+                    ps.setString(2, Email_reciver);
+                    ps.setString(3, subject);
+                    ps.setString(4, body);
+                    ps.setString(5, time1);
+                    ps.setString(6, Name_sender);
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("Mail_box.jsp");
+
+                } else if (request.getParameter("AdminMail") != null) {
+                    String Name_sender = request.getParameter("Name_sender");
+                    String Email_sender = request.getParameter("Email_sender");
+                    String Email_reciver = request.getParameter("Email_reciver");
+                    String subject = request.getParameter("subject");
+                    String body = request.getParameter("body");
+                    Date date = new Date();
+                    SimpleDateFormat ft = new SimpleDateFormat(" dd/MM hh:mm a ");
+                    String time1 = (ft.format(date)).toString();
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME) values(?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, Email_sender);
+                    ps.setString(2, Email_reciver);
+                    ps.setString(3, subject);
+                    ps.setString(4, body);
+                    ps.setString(5, time1);
+                    ps.setString(6, Name_sender);
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("Admin_Message.jsp");
+
+                } else if (request.getParameter("Job_Create") != null) {
+                    String NameJob = request.getParameter("NameJob");
+                    String JobDetails = request.getParameter("JobDetails");
+                    String OpeningDate = request.getParameter("OpeningDate");
+                    String closingDate = request.getParameter("closingDate");
+                    String NRound = request.getParameter("NRound");
+                    String jPosition = request.getParameter("jPosition");
+                    String jEvent = request.getParameter("jEvent");
+                    String jEventUrl = request.getParameter("jEventUrl");
+                    String jTime = request.getParameter("jTime");
+
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into Job(NAME,DETAILS,OPEN,CLOSE,ROUND,OPEN_POSITIONS,NEXT_EVENT,EVENT_DATE,EVENT_URL) values(?,?,?,?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, NameJob);
+                    ps.setString(2, JobDetails);
+                    ps.setString(3, OpeningDate);
+                    ps.setString(4,closingDate);
+                    ps.setString(5,NRound);
+                    ps.setString(6,jPosition);
+                    ps.setString(7,jEvent);
+                    ps.setString(8, jTime);
+                    ps.setString(9,jEventUrl );
+                   
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("Create_Job.jsp");
+
+                }else if (request.getParameter("Create_Q") != null) {
+                    String Question= request.getParameter("Question");
+                    String OptionA = request.getParameter("OptionA");
+                    String OptionB = request.getParameter("OptionB");
+                    String OptionC = request.getParameter("OptionC");
+                    String OptionD = request.getParameter("OptionD");
+                    String Ans = request.getParameter("Ans");
+                    
+
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into Question(Question,OptionA,OptionB,OptionC,OptionD,Ans) values(?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, Question);
+                    ps.setString(2, OptionA);
+                    ps.setString(3, OptionB);
+                    ps.setString(4,OptionC);
+                    ps.setString(5,OptionD);
+                    ps.setString(6,Ans);
+                    
+                   
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("Create_Job.jsp");
+
                 }
 
             } catch (Exception e) {

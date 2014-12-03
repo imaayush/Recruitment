@@ -11,22 +11,26 @@
     String STARTDATE = "";
     String ENDDATE = "";
     int num = 0;
-    int columnsNumber =0;
+    int count = 0;
     if (session.getAttribute("id") != null) {
         String id2 = (String) session.getAttribute("id");
         Connection conn = ConnectionProvider.getCon();
-        String query = "select*from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'";
+        String query = "select count(ID) AS COUNT from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'";
         PreparedStatement ps = conn.prepareStatement(query);
-        // ps.setInt(1,1);
-        // ps.setString(1,uemail);
-        ResultSet rs = ps.executeQuery();
-        ResultSetMetaData rsmd = rs.getMetaData();
 
-         columnsNumber = rsmd.getColumnCount();
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            count = rs.getInt("COUNT");
+        }
+        conn.close();
+        conn = ConnectionProvider.getCon();
+        query = "select*from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'" +"ORDER BY ID DESC";
+        ps = conn.prepareStatement(query);
+
+         rs = ps.executeQuery();
+
         String pass = null;
         String status = null;
-
-        
 
 
 %>

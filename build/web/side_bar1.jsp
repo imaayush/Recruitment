@@ -5,36 +5,37 @@
 --%>
 
 <div style="width:25% ;float:left;height:100%; position: fixed;">
+    
     <ul class="list-group">
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Personal.jsp">General</a>
+            <a href="#General">General</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Acadeamic.jsp">Education</a>
+            <a href="#Education">Education</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Traning.jsp">Skills</a>
+            <a href="#Skills">Skills</a>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Project.jsp">Projects</a>    
+            <a href="#Projects">Projects</a>    
         </li>
         
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Experience.jsp">Experience</a>   
+            <a href="#Experience">Experience</a>   
         </li>
         <li class="list-group-item">
-            <a href="Photo.jsp">Photo</a>
+            <a href="#Photo">Photo</a>
             <span class="glyphicon glyphicon-remove"></span>
 
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-ok"></span>
-            <a href="Skill.jsp">Resume</a>
+            <a href="#Resume">Resume</a>
         </li>
     </ul>
 

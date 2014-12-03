@@ -1,13 +1,13 @@
 <%-- 
-    Document   : header
-    Created on : Nov 18, 2014, 5:23:28 PM
+    Document   : Header_Admin
+    Created on : Nov 27, 2014, 10:44:22 PM
     Author     : Knight
 --%>
 
 <%@page import="bean.GetInfo"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ include file="select.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,14 +32,14 @@
       
 
         %>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+       
         <%}%>
         <title>Home</title> 
     </head> 
     <body> 
         
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">            
-            <div class="navbar-header">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >            
+            <div class="navbar-header" style="opacity: 0.9;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -48,13 +48,13 @@
                 </button>
                 <a class="navbar-brand" href="index.jsp">Admin Panel</a>
             </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse" >
+            <div class="collapse navbar-collapse navbar-ex1-collapse"  >
                 <%                    
             
                         if (token== 2) {
                       
                %>
-               <%@include  file="side_nav.jsp" %>
+               <%@include  file="side_admin.jsp" %>
                <% }%>
                
                  <%                    
@@ -62,15 +62,8 @@
                         if (token== 2 ||token==1) {
                       
                %>
-               <%@include  file="Name.jsp" %>
+               <%@include  file="Admin_Name.jsp" %>
                <% }%>
                
             </div>
         </nav>
-<%                    
-            
-                 if(token==1){
-                      
-               %>
-               <%@include  file="side_bar1.jsp" %>
-               <% }%>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : portfolio
-    Created on : Nov 19, 2014, 11:51:01 PM
+    Document   : Admin_Message
+    Created on : Dec 3, 2014, 8:22:14 PM
     Author     : Knight
 --%>
 
@@ -12,8 +12,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
-<%@ include file="header.jsp" %>
-
+<%@ include file="Header_Admin.jsp" %>
+<%@ include file="selecte_admin.jsp" %>
 <div style="width:75% ;float:left;height:95%;margin-left:22%; margin-top: -2% ">
 
     <div class="row" >
@@ -27,10 +27,10 @@
                         <%@include file="selecte_message.jsp" %>
                 
                 <%while (rs.next()) {%>
-                 <div class="form-group">
+                <div class="form-group">
                    
                     <hr class ="hr">
-                    <label class="col-sm-2 control-label"><%=rs.getString("SENDER_MAIL")%></label><span class="glyphicon glyphicon-globe" style="margin-left:60%;"><%=rs.getString("DATE_MAIL")%></span>
+                    <label class="col-sm-2 control-label"><%=rs.getString("SEND_NAME")%></label><span class="glyphicon glyphicon-globe" style="margin-left:60%;"><%=rs.getString("DATE_MAIL")%></span>
                     
                           
                 </div>
@@ -40,7 +40,7 @@
                         
                 </div>
                 <div class="form-group">
-                    &nbsp;&nbsp;&nbsp;    <%=rs.getString("BODY")%>  
+                    &nbsp;&nbsp;&nbsp; <%=rs.getString("BODY")%>  
                 </div>
                 <%}
 
@@ -50,7 +50,7 @@
                        
                     </div>
 
-                    <%@ include file="Send_Mail.jsp" %>
+                    <%@ include file="Admin_mail.jsp" %>
 
 
                 </div>
