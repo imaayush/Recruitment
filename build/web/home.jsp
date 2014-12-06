@@ -3,6 +3,9 @@
     Created on : Nov 19, 2014, 5:42:21 PM
     Author     : Knight
 --%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>
@@ -14,7 +17,7 @@
 <%@ include file="header.jsp" %>
 
 <div style="width:75% ;float:left;margin-left:22%; margin-top: -2% ">
-    <form role="form" action="Personal" method="post"  class="form-horizontal" >
+    
 
         <div class="row" >
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
@@ -23,7 +26,7 @@
                     <div class="listing-content">
                         <br>
 
-                        <div class="col-lg-3 col-md-4 col-xs-6 thumb"><br>
+                        <div class="col-lg-3 col-md-3 col-xs-2 thumb"><br>
 
                             <img class="img-thumbnail" src=<%=Photo%> alt=<%=Name.toUpperCase()%> style="height:32%;"/>
 
@@ -55,6 +58,7 @@
             </div>
         </div>
         <%@include file="selecte_application.jsp" %>
+        <form role="form" action="Agreement.jsp" method="post"  class="form-horizontal" >
         <div class="row" >
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default" style="height:50%">
@@ -69,12 +73,12 @@
                                 <tr>
                                     <th><%=POSITIONS%></th>
                                     <th></th>
-                                    
+
                                 </tr>
                             </thead>
                             <tr>
                                 <td>Current Status </td>
-                                <td><%=rs.getString("STATUS")%></td>
+                                <td><%=status%></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -85,10 +89,28 @@
                             <tr>
                                 <td>Event Time</td>
                                 <td><%=Event_Date%></td>
-                                <td></td>
+                                <td><%
+                                    
+                                   
+                                    date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm a").parse(Event_Date);
+                                    date2 = Calendar.getInstance().getTime();
+                                    if ( date1.compareTo(date2)<0) {
+                                        if(status.equals("Quiz")==true)
+                                        {%>
+                                          <button type="Submit" class="btn btn-primary" value=<%=Url+","+JobID%> name="Quiz" >Quiz</button>
+                                        <%}
+                                        else if(Next_Event.equals("Interview")==true){%>
+                                                                
+                                      <a class="btn btn-primary" style="color: white !important;"  href=<%=Url%> >Interview</a>
+
+                                      <%  }
+                                    } else {
+                                    }
+                                    %>
+                                </td>
                             </tr>
 
-                           
+
                         </table>
 
 
@@ -103,9 +125,8 @@
             </div>
         </div>
 
-        <%} 
-        }
-        else {
+        <%}
+            } else {
             }
         %>
     </form>

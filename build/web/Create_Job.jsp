@@ -63,24 +63,7 @@
                                 <input type="text" class=" form-control" id="inputEmail3" name="jPosition" placeholder="Position" >
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Next Event</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="jEvent" placeholder="Event " >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label"> Event Url</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="jEventUrl" placeholder="Event Url" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Event Time</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="jTime" placeholder="DD/MM/YYYY HH:MM" >
-                            </div>
-                        </div>
+                        
 
 
                     </div>

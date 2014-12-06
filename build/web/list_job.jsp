@@ -15,7 +15,7 @@
 <%@ include file="Header_Admin.jsp" %>
 <%@include file="selecte_job.jsp" %>
 <div style="width:75% ;float:left;margin-left:22%; margin-top: -2% ">
-    <form role="form" action="job_reg.jsp" method="post"  class="form-horizontal" >
+    <form role="form" action="Create_Event.jsp" method="post"  class="form-horizontal" >
         <div class="row" >
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
                 <div class="listing listing-default" >
@@ -36,7 +36,8 @@
                             </thead>
                         </table>
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value=<%=rs.getString("ID")%> name="Job_Remove" >Remove</button>
+                           
+                            <button type="Submit" class="btn btn-primary" value=<%=rs.getString("ID")%> name="Create_Event" >Create Next Event</button>
                             <br>
                             <h1></h1>
                             <span></span>

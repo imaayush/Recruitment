@@ -14,6 +14,7 @@
 <%@page import="bean.GetInfo"%>
 <%@ page import="bean.GetInfo.*" %>  
 <%@ page import="bean.ConnectionProvider.*" %>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <%session.setAttribute("token", 2);%>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>

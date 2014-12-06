@@ -15,25 +15,11 @@
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, 1);
             ps.setString(2, id1);
-            ps.setString(3, "Interview");
+            ps.setString(3, "Quiz");
             ps.setString(4, job);
 
             ps.executeUpdate();
             response.sendRedirect("job.jsp");
-        } else {
-
-        }
-    } else if (request.getParameter("Job_Remove") != null) {
-        if (session.getAttribute("id") != null) {
-            String id1 = (String) session.getAttribute("id");
-            String job = request.getParameter("Job_Remove");
-            Connection conn = ConnectionProvider.getCon();
-            String query = "delete from job where id ="+"'"+job+"'";
-            PreparedStatement ps = conn.prepareStatement(query);
-           
-
-            ps.executeUpdate();
-            response.sendRedirect("list_job.jsp");
         } else {
 
         }

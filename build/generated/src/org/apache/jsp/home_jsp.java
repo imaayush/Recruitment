@@ -3,11 +3,27 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.lang.String;
 import java.sql.ResultSet;
 import bean.GetInfo;
 import bean.GetInfo.*;
 import bean.ConnectionProvider.*;
+import bean.GetInfo;
+import java.sql.ResultSet;
+import bean.GetInfo;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import bean.ConnectionProvider;
+import bean.GetInfo;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import bean.ConnectionProvider;
 import bean.GetInfo;
 import java.sql.ResultSet;
 
@@ -19,11 +35,14 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(4);
+    _jspx_dependants = new java.util.ArrayList<String>(7);
     _jspx_dependants.add("/header.jsp");
-    _jspx_dependants.add("/side_nav.html");
+    _jspx_dependants.add("/select.jsp");
+    _jspx_dependants.add("/side_nav.jsp");
     _jspx_dependants.add("/Name.jsp");
+    _jspx_dependants.add("/selecte_message.jsp");
     _jspx_dependants.add("/side_bar1.jsp");
+    _jspx_dependants.add("/selecte_application.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -60,9 +79,18 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("  \n");
       out.write("\n");
       out.write(" \n");
+session.setAttribute("token", 2);
+      out.write("\n");
+      out.write("<link href=\"css/card.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -71,39 +99,101 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
+
+    String Name = "";
+    String Email = "";
+    String Mobile = "";
+    String Age = "";
+    String Add = "";
+    String Father = "";
+    String InX = "";
+    String X = "";
+    String InXII = "";
+    String XII = "";
+    String InGrad = "";
+    String Grad = "";
+    String InPG = "";
+    String PG = "";
+    String Frameworks = "";
+    String Tools = "";
+    String Languages = "";
+    String Photo = "";
+    String Password = "";
+    String Status = "";
+    String Resume = "";
+    String date = "";
+    String month = "";
+    String year = "";
+    String[] birth = new String[3];
+    birth[0] = "";
+    birth[1] = "";
+    birth[2] = "";
+    
+    if (session.getAttribute("id") != null) {
+        String id = (String) session.getAttribute("id");
+        ResultSet rs = GetInfo.get(id);
+
+        while (rs.next()) {
+            Name = rs.getString("NAME");
+            Email = rs.getString("EMAIL");
+            Mobile = rs.getString("Mobile");
+            Age = rs.getString("Age");
+            Add = rs.getString("Address");
+            Father = rs.getString("Father");
+
+            InX = rs.getString("InX");
+            X = rs.getString("X");
+            InXII = rs.getString("InXII");
+            XII = rs.getString("XII");
+            InGrad = rs.getString("InGrad");
+            Grad = rs.getString("Grad");
+            InPG = rs.getString("InPG");
+            PG = rs.getString("PG");
+            Languages = rs.getString("Languages");
+            Tools = rs.getString("Tools");
+            Frameworks = rs.getString("Frameworks");
+            Photo = rs.getString("Photo_Path");
+            Password = rs.getString("Password");
+            Status = rs.getString("Status");
+            Resume = rs.getString("Resume_Path");
+            Age = rs.getString("Age");
+        }
+
+         birth = Age.split("-");
+        date = birth[0];
+        month = birth[1];
+        year = birth[2];
+        
+    } else {
+    }
+
+      out.write('\n');
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta charset=\"utf-8\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("         ");
       out.write("\n");
+      out.write("         <script src=\"js/jquery-1.11.1.min.js\" type=\"text/javascript\"></script>\n");
+      out.write("          <script src=\"js/bootstrap.min.js\" type=\"text/javascript\"></script>\n");
+      out.write("      \n");
+      out.write("        <script src=\"js/bootstrap-tagsinput.js\" type=\"text/javascript\"></script>\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-theme.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/home_style.css\">\n");
-      out.write("\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-theme.min.css\" >\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/home_style.css\" >\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"font-awesome/css/font-awesome.min.css\" />\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/local.css\" />\n");
-      out.write("        <script src=\"js/jquery-2.1.1.min.js \"></script>\n");
-      out.write("        <script src=\"js/bootstrap.min.js\"></script>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/local.css\"  />\n");
+      out.write("        ");
+      out.write("\n");
+      out.write("       \n");
       out.write("        ");
  String id = (String) session.getAttribute("id");
-            String Status = "";
-            String Name = "";
-            int token = 0;
-            if ("".equals(id) == false) {
-                ResultSet rs = GetInfo.get(id);
-                while (rs.next()) {
-                    Name = rs.getString("NAME");
-                    Status = rs.getString("Status");
-                }
-                if (Status.equals("D")) {
-                    token = 1;
-                }
-                if (Status.equals("A")) {
-                    token = 2;
-                }
-
-            }else{
-
+            
+            int token = (int) session.getAttribute("token");
+            if (token == 0) {
+      
 
         
       out.write("\n");
@@ -123,7 +213,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <span class=\"icon-bar\"></span>\n");
       out.write("                    <span class=\"icon-bar\"></span>\n");
       out.write("                </button>\n");
-      out.write("                <a class=\"navbar-brand\" href=\"index.html\">Admin Panel</a>\n");
+      out.write("                <a class=\"navbar-brand\" href=\"index.jsp\">Admin Panel</a>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"collapse navbar-collapse navbar-ex1-collapse\" >\n");
       out.write("                ");
@@ -135,15 +225,23 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("               ");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<ul class=\"nav navbar-nav side-nav\">\n");
-      out.write("    <li class=\"active\"><a href=\"index.html\"><i class=\"fa fa-bullseye\"></i> Dashboard</a></li>\n");
-      out.write("    <li><a href=\"portfolio.html\"><i class=\"fa fa-tasks\"></i> Portfolio</a></li>                    \n");
-      out.write("    <li><a href=\"blog.html\"><i class=\"fa fa-globe\"></i> Blog</a></li>\n");
-      out.write("    <li><a href=\"forms.html\"><i class=\"fa fa-list-ol\"></i> Forms</a></li>\n");
-      out.write("    <li><a href=\"typography.html\"><i class=\"fa fa-font\"></i> Typography</a></li>\n");
-      out.write("    <li><a href=\"bootstrap-elements.html\"><i class=\"fa fa-list-ul\"></i> Bootstrap Elements</a></li>\n");
-      out.write("    <li><a href=\"bootstrap-grid.html\"><i class=\"fa fa-table\"></i > Bootstrap Grid</a></li>                    \n");
-      out.write("</ul>");
+      out.write("    \n");
+      out.write("    <li> \n");
+      out.write("    </li>\n");
+      out.write("     <li ><a href=\"home.jsp\"><i class=\"fa fa-bullseye\"></i> Dashboard</a></li>\n");
+      out.write("     <li ><a href=\"Profile.jsp\"><i class=\"fa fa-user\"></i> Profile</a></li>\n");
+      out.write("    <li><a href=\"portfolio.jsp\"><i class=\"fa fa-tasks\"></i> Portfolio</a></li>                    \n");
+      out.write("    \n");
+      out.write("    \n");
+      out.write("    <li><a href=\"job.jsp\"><i class=\"fa fa-font\"></i>pply For Jobs</a></li>\n");
+      out.write("    <li><a href=\"practice.jsp\"><i class=\"fa fa-list-ul\"></i>Practice</a></li>\n");
+      out.write("    <li><a href=\"time.jsp\"><i class=\"fa fa-table\"></i > Time Manage</a></li>                    \n");
+      out.write("</ul>\n");
+      out.write(" ");
       out.write("\n");
       out.write("               ");
  }
@@ -163,24 +261,75 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div id=\"demo\">\n");
       out.write("    <ul  class=\"nav navbar-nav navbar-right navbar-user\">\n");
       out.write("        <li  class=\"dropdown messages-dropdown\" >\n");
-      out.write("            <a  href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"style=\"color: #ffffff\"><i class=\"fa fa-envelope\"></i> Messages <span class=\"badge\">2</span> <b class=\"caret\"></b></a>\n");
+      out.write("            ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+ String ProjectName = "";
+    String DESCRIPTION = "";
+    String STARTDATE = "";
+    String ENDDATE = "";
+    int num = 0;
+    int count = 0;
+    if (session.getAttribute("id") != null) {
+        String id2 = (String) session.getAttribute("id");
+        Connection conn = ConnectionProvider.getCon();
+        String query = "select count(ID) AS COUNT from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'";
+        PreparedStatement ps = conn.prepareStatement(query);
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            count = rs.getInt("COUNT");
+        }
+        conn.close();
+        conn = ConnectionProvider.getCon();
+        query = "select*from MESSAGE where RECIVER_MAIL=" + "'" + id2 + "'" +"ORDER BY ID DESC";
+        ps = conn.prepareStatement(query);
+
+         rs = ps.executeQuery();
+
+        String pass = null;
+        String status = null;
+
+
+
+      out.write("\n");
+      out.write("            <a  href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" style=\"color: #ffffff\"><i class=\"fa fa-envelope\"></i> Messages <span class=\"badge\">");
+      out.print(count);
+      out.write("</span> <b class=\"caret\"></b></a>\n");
       out.write("            <ul class=\"dropdown-menu\">\n");
-      out.write("                <li class=\"dropdown-header\">2 New Messages</li>\n");
+      out.write("                \n");
+      out.write("                <li class=\"dropdown-header\">");
+      out.print(count);
+      out.write(" New Messages</li>\n");
+      out.write("                ");
+while (rs.next()) {
+      out.write("\n");
       out.write("                <li class=\"message-preview\">\n");
-      out.write("                    <a href=\"#\">\n");
+      out.write("                    <a href=\"Mail_box.jsp\">\n");
       out.write("                        <span class=\"avatar\"><i class=\"fa fa-bell\"></i></span>\n");
-      out.write("                        <span class=\"message\">Security alert</span>\n");
+      out.write("                        <span class=\"message\">");
+      out.print(rs.getString("SUBJECT"));
+      out.write("</span>\n");
       out.write("                    </a>\n");
       out.write("                </li>\n");
       out.write("                <li class=\"divider\"></li>\n");
-      out.write("                <li class=\"message-preview\">\n");
-      out.write("                    <a href=\"#\">\n");
-      out.write("                        <span class=\"avatar\"><i class=\"fa fa-bell\"></i></span>\n");
-      out.write("                        <span class=\"message\">Security alert</span>\n");
-      out.write("                    </a>\n");
-      out.write("                </li>\n");
-      out.write("                <li class=\"divider\"></li>\n");
-      out.write("                <li><a href=\"#\">Go to Inbox <span class=\"badge\">2</span></a></li>\n");
+      out.write("                ");
+}
+
+                            } else {
+
+                            }
+      out.write("\n");
+      out.write("                \n");
+      out.write("                <li><a href=\"Mail_box.jsp\">Go to Inbox <span class=\"badge\">");
+      out.print(count);
+      out.write("</span></a></li>\n");
       out.write("            </ul>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"dropdown user-dropdown\">\n");
@@ -188,10 +337,10 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(Name);
       out.write("<b class=\"caret\"></b></a>\n");
       out.write("            <ul class=\"dropdown-menu\">\n");
-      out.write("                <li><a href=\"#\"><i class=\"fa fa-user\"></i> Profile</a></li>\n");
-      out.write("                <li><a href=\"#\"><i class=\"fa fa-gear\"></i> Settings</a></li>\n");
+      out.write("                <li><a href=\"Profile.jsp\"><i class=\"fa fa-user\"></i> Profile</a></li>\n");
+      out.write("                <li><a href=\"Settings.jsp\"><i class=\"fa fa-gear\"></i> Settings</a></li>\n");
       out.write("                <li class=\"divider\"></li>\n");
-      out.write("                <li><a href=\"#\"><i class=\"fa fa-power-off\"></i> Log Out</a></li>\n");
+      out.write("                <li><a href=\"logout.jsp\"><i class=\"fa fa-power-off\"></i> Log Out</a></li>\n");
       out.write("            </ul>\n");
       out.write("        </li>\n");
       out.write("    </ul>\n");
@@ -205,7 +354,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </nav>\n");
                     
             
-                        if (token== 1) {
+                 if(token==1){
                       
                
       out.write("\n");
@@ -213,35 +362,37 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<div style=\"width:25% ;float:left;height:100%; position: fixed;\">\n");
+      out.write("    \n");
       out.write("    <ul class=\"list-group\">\n");
       out.write("        <li class=\"list-group-item\">\n");
       out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Personal.jsp\">Personal Details</a>\n");
+      out.write("            <a href=\"#General\">General</a>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"list-group-item\">\n");
       out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Acadeamic.jsp\">Academic Details</a>\n");
+      out.write("            <a href=\"#Education\">Education</a>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"list-group-item\">\n");
       out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Traning.jsp\">Training</a>\n");
+      out.write("            <a href=\"#Skills\">Skills</a>\n");
       out.write("        </li>\n");
       out.write("        <li class=\"list-group-item\">\n");
       out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Project.jsp\">Projects</a>    \n");
+      out.write("            <a href=\"#Projects\">Projects</a>    \n");
       out.write("        </li>\n");
+      out.write("        \n");
       out.write("        <li class=\"list-group-item\">\n");
       out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Skill.jsp\">Computer Skills</a>\n");
+      out.write("            <a href=\"#Experience\">Experience</a>   \n");
       out.write("        </li>\n");
       out.write("        <li class=\"list-group-item\">\n");
-      out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
-      out.write("            <a href=\"Experience.jsp\">Experience</a>   \n");
-      out.write("        </li>\n");
-      out.write("        <li class=\"list-group-item\">\n");
-      out.write("            <a href=\"Photo.jsp\">Photo and Signature upload</a>\n");
+      out.write("            <a href=\"#Photo\">Photo</a>\n");
       out.write("            <span class=\"glyphicon glyphicon-remove\"></span>\n");
       out.write("\n");
+      out.write("        </li>\n");
+      out.write("        <li class=\"list-group-item\">\n");
+      out.write("            <span class=\"glyphicon glyphicon-ok\"></span>\n");
+      out.write("            <a href=\"#Resume\">Resume</a>\n");
       out.write("        </li>\n");
       out.write("    </ul>\n");
       out.write("\n");
@@ -249,137 +400,171 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("               ");
  }
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("<div style=\"width:75% ;float:left;margin-left:22%; margin-top: -2% \">\n");
+      out.write("    <form role=\"form\" action=\"Personal\" method=\"post\"  class=\"form-horizontal\" >\n");
+      out.write("\n");
+      out.write("        <div class=\"row\" >\n");
+      out.write("            <div class=\"col-xs-12 col-sm-12 col-md-10 col-lg-10\">\n");
+      out.write("                <div class=\"listing listing-default\" >\n");
+      out.write("\n");
+      out.write("                    <div class=\"listing-content\">\n");
+      out.write("                        <br>\n");
+      out.write("\n");
+      out.write("                        <div class=\"col-lg-3 col-md-3 col-xs-2 thumb\"><br>\n");
+      out.write("\n");
+      out.write("                            <img class=\"img-thumbnail\" src=");
+      out.print(Photo);
+      out.write(" alt=");
+      out.print(Name.toUpperCase());
+      out.write(" style=\"height:32%;\"/>\n");
+      out.write("\n");
+      out.write("                            <br>\n");
+      out.write("                            <h5></h5>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col-lg-4 col-md-4 col-xs-4 thumb\"><br>\n");
+      out.write("\n");
+      out.write("                            <div class=\"shape\" style=\"background-color:white;\">\n");
+      out.write("                                <div class=\"shape-text\" style=\"padding-left:15%;color:black; \" ><h3>");
+      out.print(Name.toUpperCase());
+      out.write("</h3></div>\n");
+      out.write("                            </div>\n");
+      out.write("\n");
+      out.write("                            <div class=\"shape\" style=\"background-color:white;\">\n");
+      out.write("                                <div class=\"shape-text\" style=\"padding-left:15%;color:black; \" >Frameworks : <span class=\"large darker\" style=\"color:#5e5e5e;\">");
+      out.print(Frameworks);
+      out.write("</span></div>\n");
+      out.write("                            </div>\n");
+      out.write("\n");
+      out.write("                            <div class=\"shape\" style=\"background-color:white;\">\n");
+      out.write("                                <div class=\"shape-text\" style=\"padding-left:15%;color:black; \" ><a href=");
+      out.print(Resume);
+      out.write(">Resume</a></div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                    </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("                            ");
+ String s;
+                            SimpleDateFormat simpleDateFormat;
+                            Date date2,date1;
+                            
+      out.write("\n");
+      out.write("        ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
 
-    Name = "";
-    String Email = "";
-    String Mobile = "";
-    String Age = "";
-    String Add = "";
-    String Father = "";
-    String InX = "";
-    String X = "";
-    String InXII = "";
-    String XII = "";
-    String InGrad = "";
-    String Grad = "";
-    String InPG = "";
-    String PG = "";
-    id = (String) session.getAttribute("id");
-    ResultSet rs = GetInfo.get(id);
+    String Company="";
+    String Details ="";
+    String Next_Event ="";
+    String Event_Date="";
+    String POSITIONS ="";
+    if (session.getAttribute("id") != null) {
+        String id1 = (String) session.getAttribute("id");
+        Connection conn = ConnectionProvider.getCon();
+        String query = "select*from LIST_APPLICATION where APPLICATION=" + "'" + id1 + "'";
+        PreparedStatement ps = conn.prepareStatement(query);
+                                // ps.setInt(1,1);
+        // ps.setString(1,uemail);
+        ResultSet rs = ps.executeQuery();
+        String pass = null;
+        String status = null;
 
-    while (rs.next()) {
-        Name = rs.getString("NAME");
-        Email = rs.getString("EMAIL");
-        Mobile = rs.getString("Mobile");
-        Age = rs.getString("Age");
-        Add = rs.getString("Address");
-        Father = rs.getString("Father");
-    }
+        while (rs.next()) {
+            String id2 = rs.getString("JOB");
+            query = "select*from JOB where ID=" + "'" + id2 + "'";
+            PreparedStatement ps1 = conn.prepareStatement(query);
 
+            ResultSet rs1 = ps1.executeQuery();
+            while (rs1.next()) {
+                 Company  = rs1.getString("NAME");
+                 Details = rs1.getString("DETAILS");
+                 Next_Event = rs1.getString("NEXT_EVENT");
+                 Event_Date = rs1.getString("EVENT_DATE");
+                  POSITIONS = rs1.getString("OPEN_POSITIONS");
+            }
+        
 
+    
 
       out.write("\n");
-      out.write("<div style=\"width:73% ;float:right;height:100% ; margin-left:2%;\">\n");
-      out.write("    <form role=\"form\" action=\"Personal\" method=\"post\"  class=\"form-horizontal\" >\n");
-      out.write("        <div class=\"row\">\n");
-      out.write("            <div class=\"col-xs-10 col-sm-12 col-md-10 col-lg-10\">\n");
-      out.write("                <div class=\"listing listing-default\">\n");
+      out.write("        <div class=\"row\" >\n");
+      out.write("            <div class=\"col-xs-12 col-sm-12 col-md-10 col-lg-10\">\n");
+      out.write("                <div class=\"listing listing-default\" style=\"height:50%\">\n");
       out.write("                    <div class=\"shape\">\n");
-      out.write("                        <div class=\"shape-text\">General</div>\n");
+      out.write("                        <div class=\"shape-text\">");
+      out.print(Company);
+      out.write("</div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"listing-content\">\n");
       out.write("                        <br>\n");
       out.write("\n");
+      out.write("                        <table class=\"table table-hover\">\n");
+      out.write("                            <thead>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <th>");
+      out.print(POSITIONS);
+      out.write("</th>\n");
+      out.write("                                    <th></th>\n");
+      out.write("\n");
+      out.write("                                </tr>\n");
+      out.write("                            </thead>\n");
+      out.write("                            <tr>\n");
+      out.write("                                <td>Current Status </td>\n");
+      out.write("                                <td>");
+      out.print(rs.getString("STATUS"));
+      out.write("</td>\n");
+      out.write("                                <td></td>\n");
+      out.write("                            </tr>\n");
+      out.write("                            <tr>\n");
+      out.write("                                <td>Next Event</td>\n");
+      out.write("                                <td>");
+      out.print(Next_Event);
+      out.write("</td>\n");
+      out.write("                                <td></td>\n");
+      out.write("                            </tr>\n");
+      out.write("                            <tr>\n");
+      out.write("                                <td>Event Time</td>\n");
+      out.write("                                <td>");
+      out.print(Event_Date);
+      out.write("</td>\n");
+      out.write("                                <td>");
+
+                                     s = Event_Date;
+                                    simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm a");
+                                    date2 = simpleDateFormat.parse(s);
+                                     date1 = Calendar.getInstance().getTime();
+                                    if (date1.compareTo(date2)>0) {
+                                        out.print("fuck you");
+                                    } else {
+                                    }
+                                    
+      out.write("\n");
+      out.write("                                </td>\n");
+      out.write("                            </tr>\n");
       out.write("\n");
       out.write("\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Name</label>\n");
-      out.write("                            <div class=\"col-sm-6\">\n");
-      out.write("                                <input type=\"text\" class=\" form-control\" id=\"inputEmail3\" name=\"Name\" value=");
-      out.print(Name);
-      out.write(" readonly>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Email</label>\n");
-      out.write("                            <div class=\"col-sm-6\">\n");
-      out.write("                                <input type=\"email\" class=\"form-control\" id=\"inputPassword3\" name=\"Email\" value=");
-      out.print(Email);
-      out.write(" readonly>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Mobile</label>\n");
-      out.write("                            <div class=\"col-sm-6\">\n");
-      out.write("                                <input type=\"text\" class=\"form-control\" id=\"inputPassword3\" name=\"Mobile\" value=");
-      out.print(Mobile);
-      out.write(" readonly>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Father Name</label>\n");
-      out.write("                            <div class=\"col-sm-6\">\n");
-      out.write("                                <input type=\"text\" class=\"form-control\" id=\"inputPassword3\" name=\"Father\" value=");
-      out.print(Father);
-      out.write(">\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Date of Birth</label>\n");
-      out.write("                            <div class=\"col-sm-10\">\n");
-      out.write("                                <div  class=\"col-sm-2\" style=\"margin-left:-2%; \">\n");
-      out.write("                                    <select name=\"start_month\" class=\"form-control\">\n");
-      out.write("                                        <option value=\"\" selected=\"selected\">---------</option>\n");
-      out.write("                                        <option value=\"1\">Jan</option>\n");
-      out.write("                                        <option value=\"2\">Feb</option>\n");
-      out.write("                                        <option value=\"3\">Mar</option>\n");
-      out.write("                                        <option value=\"4\">Apr</option>\n");
-      out.write("                                        <option value=\"5\">May</option>\n");
-      out.write("                                        <option value=\"6\">Jun</option>\n");
-      out.write("                                        <option value=\"7\">Jul</option>\n");
-      out.write("                                        <option value=\"8\">Aug</option>\n");
-      out.write("                                        <option value=\"9\">Sep</option>\n");
-      out.write("                                        <option value=\"10\">Oct</option>\n");
-      out.write("                                        <option value=\"11\">Nov</option>\n");
-      out.write("                                        <option value=\"12\">Dec</option>\n");
-      out.write("                                    </select> \n");
-      out.write("                                </div>\n");
-      out.write("                                <div  class=\"col-sm-2\" style=\"margin-left:-2%; \">\n");
-      out.write("                                    <select name=\"start_year\" class=\"form-control\">\n");
-      out.write("                                        <option value=\"\" selected=\"selected\">---------</option>\n");
-      out.write("                                        ");
- for (int i = 2014; i > 1950; i--) {
+      out.write("                        </table>\n");
       out.write("\n");
-      out.write("                                        <option value=\"\" selected=\"selected\">");
-      out.print(i);
-      out.write("</option>\n");
-      out.write("                                        ");
-}
       out.write("\n");
-      out.write("                                    </select>\n");
-      out.write("\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Address</label>\n");
-      out.write("                            <div class=\"col-sm-6\">\n");
-      out.write("                                <textarea class=\"form-control\" rows=\"3\" name=\"Add\">");
-      out.print(Add);
-      out.write("</textarea>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
       out.write("\n");
       out.write("                    </div>\n");
       out.write("\n");
-      out.write("                    <div class=\"modal-footer\">\n");
-      out.write("                        <div class=\"col-sm-12\">\n");
-      out.write("                            <button type=\"Submit\" class=\"btn btn-primary\" value=\"Submit\" >Save</button>\n");
       out.write("\n");
-      out.write("\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("                </div>\n");
@@ -387,6 +572,11 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("\n");
+      out.write("        ");
+}
+            } else {
+            }
+        
       out.write("\n");
       out.write("    </form>\n");
       out.write("</div>\n");

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Create_Job
-    Created on : Nov 28, 2014, 1:26:02 AM
+    Document   : Create_Event
+    Created on : Dec 5, 2014, 6:17:41 PM
     Author     : Knight
 --%>
 
@@ -26,52 +26,48 @@
                         <br>
 
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Name of Job</label>
+                            <label for="inputEmail3" class="col-sm-2 control-label">Job ID</label>
                             <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="NameJob" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Details</label>
-                            <div class="col-sm-6">
-                                <textarea class="form-control" rows="4" name="JobDetails"></textarea>
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Opening Date</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="OpeningDate" placeholder="DD/MM/YYYY" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Closing Date</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="closingDate" placeholder="DD/MM/YYYY" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">No of Round</label>
-                            <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="NRound"  placeholder="No. of Round">
+                                <input type="text" class=" form-control" id="inputEmail3" name="JobID" value=<%=request.getParameter("Create_Event")%> readonly>
                             </div>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Position</label>
+                            <label for="inputEmail3" class="col-sm-2 control-label">Next Event</label>
                             <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="jPosition" placeholder="Position" >
+                                <select class="form-control" name="jEvent">
+                                    <option value="Quiz">Quiz</option>
+                                    <option value="Interview">Interview</option>
+                                    <option value="Challenge">Challenge</option>
+                                    <option value="Physical">Physical</option>
+                                </select>
                             </div>
                         </div>
-                        
-
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label"> Event Url</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control" id="inputEmail3" name="jEventUrl" placeholder="Event Url" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Start Time</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control" id="inputEmail3" name="jTimeStart" placeholder="DD/MM/YYYY HH:MM" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">End Time</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control" id="inputEmail3" name="jTimeEnd" placeholder="DD/MM/YYYY HH:MM" >
+                            </div>
+                        </div>
 
                     </div>
 
 
                     <div class="modal-footer">
                         <div class="col-sm-12">
-                            <button type="Submit" class="btn btn-primary" value="Job_Create" name="Job_Create" >Create</button>
+                            <button type="Submit" class="btn btn-primary" value="Create_Event" name="Create_Event" >Create</button>
 
 
                         </div>

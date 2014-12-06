@@ -17,20 +17,20 @@
 
 <div style="width:73% ;float:left;height:100% ; margin-left:27%; margin-top: -2%;">
 
-    <div class="right" style="width:10%; float:right; margin-top:5%; margin-right:5%;  ">
+    <div class="right" style="width:18%; float:right; margin-top:5%; margin-right:5%; height:5%;  ">
         <div id="done-editing-sticky-wrapper" class="sticky-wrapper" style="position:fixed;">
-            <div class="yellow-bg less-margin-2" id="done-editing">
-                <div class="regular dark">
-                    Don't forget to save your changes.
+            <div class="yellow-bg less-margin-2" id="done-editing" style="background-color: #fffcdf;">
+                <div class="regular dark" >
+                    Don't forget to save your changes.<br></br>
                 </div>
-                <a href="Profile.jsp" class="button btn-blue inline-block less-margin-2">Done Editing</a>
+                <a href="Profile.jsp" class="btn btn-primary" style="margin-left:5%; margin-bottom: 2%; color:white !important; ">Done Editing</a>
             </div>
         </div> <!-- end yellow-bg -->
     </div>
     <form role="form" action="Personal" method="post"  class="form-horizontal" >
         <section id="General">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">General</div>
@@ -99,7 +99,7 @@
         </section>
         <section id="Education">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Education</div>
@@ -166,7 +166,7 @@
         </section>
         <section id="Skills">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Skills</div>
@@ -233,7 +233,7 @@
         <section id="Projects">
 
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Projects</div>
@@ -271,7 +271,7 @@
 
                             </div>
                         </div>
-                        <div class="listing-content" style="background-color:#ffcccc; ">
+                        <div class="listing-content" style="background-color: #fffcdf; ">
                             <br>
                             <%@ include file="Select_Project.jsp" %>
                             <div >
@@ -313,7 +313,7 @@
         </section>
         <section id="Experience">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Experience</div>
@@ -368,7 +368,7 @@
                             </div>
                         </div>
 
-                        <div class="listing-content" style="background-color: yellow;">
+                        <div class="listing-content" style="background-color: #fffcdf;">
                             <br>
 
 
@@ -428,7 +428,7 @@
     <section id="Photo">
         <form action="photo.jsp" method="post"     enctype="multipart/form-data">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Photo </div>
@@ -454,7 +454,7 @@
 
 
 
-                        <div class="modal-footer" style="margin-top:10%;">
+                        <div class="modal-footer" style="margin-top:15%;">
                             <div class="col-sm-12">
                                 <button type="Submit" class="btn btn-primary" value="Save"  name="skill">Save</button>
 
@@ -474,7 +474,7 @@
     <form action="resume.jsp" method="post"     enctype="multipart/form-data">
         <section id="Resume">
             <div class="row">
-                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-12 col-md-10 col-lg-9">
                     <div class="listing listing-default">
                         <div class="shape">
                             <div class="shape-text">Resume </div>

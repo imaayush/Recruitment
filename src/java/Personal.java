@@ -268,37 +268,29 @@ public class Personal extends HttpServlet {
                     String closingDate = request.getParameter("closingDate");
                     String NRound = request.getParameter("NRound");
                     String jPosition = request.getParameter("jPosition");
-                    String jEvent = request.getParameter("jEvent");
-                    String jEventUrl = request.getParameter("jEventUrl");
-                    String jTime = request.getParameter("jTime");
 
                     Connection conn = ConnectionProvider.getCon();
-                    String query = "insert into Job(NAME,DETAILS,OPEN,CLOSE,ROUND,OPEN_POSITIONS,NEXT_EVENT,EVENT_DATE,EVENT_URL) values(?,?,?,?,?,?,?,?,?)";
+                    String query = "insert into Job(NAME,DETAILS,OPEN,CLOSE,ROUND,OPEN_POSITIONS) values(?,?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, NameJob);
                     ps.setString(2, JobDetails);
                     ps.setString(3, OpeningDate);
-                    ps.setString(4,closingDate);
-                    ps.setString(5,NRound);
-                    ps.setString(6,jPosition);
-                    ps.setString(7,jEvent);
-                    ps.setString(8, jTime);
-                    ps.setString(9,jEventUrl );
-                   
+                    ps.setString(4, closingDate);
+                    ps.setString(5, NRound);
+                    ps.setString(6, jPosition);
 
                     ps.executeUpdate();
                     conn.close();
 
                     response.sendRedirect("Create_Job.jsp");
 
-                }else if (request.getParameter("Create_Q") != null) {
-                    String Question= request.getParameter("Question");
+                } else if (request.getParameter("Create_Q") != null) {
+                    String Question = request.getParameter("Question");
                     String OptionA = request.getParameter("OptionA");
                     String OptionB = request.getParameter("OptionB");
                     String OptionC = request.getParameter("OptionC");
                     String OptionD = request.getParameter("OptionD");
                     String Ans = request.getParameter("Ans");
-                    
 
                     Connection conn = ConnectionProvider.getCon();
                     String query = "insert into Question(Question,OptionA,OptionB,OptionC,OptionD,Ans) values(?,?,?,?,?,?)";
@@ -306,16 +298,61 @@ public class Personal extends HttpServlet {
                     ps.setString(1, Question);
                     ps.setString(2, OptionA);
                     ps.setString(3, OptionB);
-                    ps.setString(4,OptionC);
-                    ps.setString(5,OptionD);
-                    ps.setString(6,Ans);
-                    
-                   
+                    ps.setString(4, OptionC);
+                    ps.setString(5, OptionD);
+                    ps.setString(6, Ans);
 
                     ps.executeUpdate();
                     conn.close();
 
                     response.sendRedirect("Create_Job.jsp");
+
+                } else if (request.getParameter("Create_Quiz") != null) {
+                    String NameQuiz = request.getParameter("NameQuiz");
+                    int NoQuestion = Integer.parseInt(request.getParameter("NoQuestion"));
+                    String Start_Time = request.getParameter("Start_Time");
+                    String End_Time = request.getParameter("End_Time");
+                    int Marks = Integer.parseInt(request.getParameter("Marks"));
+                    String AddQuestion = request.getParameter("AddQuestion");
+                    int cutoff = Integer.parseInt(request.getParameter("cutoff"));
+
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "insert into QUIZ(NAME,NO_QUESTION,START_TIME,END_TIME,Mark,LIST_QUESTION,CUTOFF) values(?,?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, NameQuiz);
+                    ps.setInt(2, NoQuestion);
+                    ps.setString(3, Start_Time);
+                    ps.setString(4, End_Time);
+                    ps.setInt(5, Marks);
+                    ps.setString(6, AddQuestion);
+                    ps.setInt(7, cutoff);
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("Create_Quiz.jsp");
+
+                } else if (request.getParameter("Create_Event") != null) {
+
+                    String jEvent = request.getParameter("jEvent");
+                    String jEventUrl = request.getParameter("jEventUrl");
+                    String jTimeStart = request.getParameter("jTimeStart");
+                    String jTimeEnd = request.getParameter("jTimeEnd");
+                    String JobID = request.getParameter("JobID");
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "update JOB set NEXT_EVENT=? ,EVENT_URL=? ,EVENT_DATE=?,EVENT_END=? where ID= ?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, jEvent);
+                    ps.setString(2, jEventUrl);
+                    ps.setString(3, jTimeStart);
+                    ps.setString(4, jTimeEnd);
+                    ps.setString(5, JobID);
+                
+
+                    ps.executeUpdate();
+                    conn.close();
+
+                    response.sendRedirect("list_job.jsp");
 
                 }
 

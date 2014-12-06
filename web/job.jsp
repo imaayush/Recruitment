@@ -22,17 +22,36 @@
                     <div class="listing-content">
                         <br>
 
-                        <table data-url="#" class="table table-hover" >
+
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th data-field="id" data-halign="right" data-align="center"><%=rs.getString("Name")%></th>
-
+                                    <th colspan="2"><%=rs.getString("Name")%></th>
+                                    
+                                   
                                 </tr>
-                                <tr>
-                                    <th data-field="id" data-halign="right" data-align="center"><%=rs.getString("DETAILS")%></th>
-                                </tr>
-                                
                             </thead>
+                            <tr>
+                                <td colspan="2"><%=rs.getString("Details")%></td>
+                                
+                                
+                            </tr>
+                            <tr>
+                                <td>Date Apply</td>
+                                <td><%=rs.getString("Open")%>&nbsp; To &nbsp;<%=rs.getString("close")%></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td><%=rs.getString("OPEN_POSITIONS")%></td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>No. of Rounds</td>
+                                <td><%=rs.getString("Round")%></td>
+                  
+                            </tr>
                         </table>
                         <div class="col-sm-12">
                             <button type="Submit" class="btn btn-primary" value=<%=rs.getString("ID")%> name="Job" >Register for Job</button>
@@ -56,10 +75,9 @@
 </div>
 <%}
 
-}
-else{
+    } else {
 
- }%>
+    }%>
 
 </body>
 </html>
