@@ -23,7 +23,7 @@ import java.io.PrintWriter;
  */
 public class Email {
 
-    public static void Sendmail(String mail, String upass) {
+    public static void Sendmail(String mail, String upass ,String body) {
 
         try {
 
@@ -49,7 +49,7 @@ public class Email {
                 message.setFrom(new InternetAddress("aayushtiwari41@gmail.com"));//change accordingly  
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                 message.setSubject(" A2Z Account Created");
-                String body = "Dear Customer,"+'\n'+ " Congratulation! You have successfully created a new account with Flipkart."+'\n'+"Your login email ID: aayushtiwari41@gmail.com "+'\n'+"Your login Password:"+upass;
+                
                 message.setText(body);
 
                 //send message  

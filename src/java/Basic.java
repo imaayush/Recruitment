@@ -49,7 +49,8 @@ public class Basic extends HttpServlet {
                     ps.setString(6, upass);
                     ps.setString(7, "19-Jan-1994");
                     ps.executeUpdate();
-                    Email.Sendmail(uemail, upass);
+                    String body = "Dear Customer,"+'\n'+ " Congratulation! You have successfully created a new account with ASP."+'\n'+"Your login email ID: "+uemail+'\n'+"Your login Password:"+upass;
+                    Email.Sendmail(uemail, upass,body);
                     response.sendRedirect("verification.jsp");
                 } else if (request.getParameter("Forgot") != null) {
                     String PG = request.getParameter("PG");
@@ -60,7 +61,8 @@ public class Basic extends HttpServlet {
                     ps.setString(2, "D");
                     ps.setString(3, uemail);
                     ps.executeUpdate();
-                    Email.Sendmail(uemail, upass);
+                    String body = "Dear Customer,"+'\n'+ " Congratulation! You have successfully created a new account with ASP."+'\n'+"Your login email ID: "+uemail+'\n'+"Your login Password:"+upass;
+                    Email.Sendmail(uemail, upass, body);
                     response.sendRedirect("verify.jsp");
                 }
 

@@ -22,13 +22,6 @@
     <li><a href="Create_Quiz.jsp"><i class="fa fa-chain-broken"></i > Create Quiz</a></li> 
     <li ><a href="Create_Q.jsp"><i class="fa fa-question"></i> Create Question</a></li>
     <li ><a href="list_job.jsp"><i class="fa fa-won"></i> List of Job</a></li>
-    <li ><a href="#">Interview &nbsp;&nbsp;&nbsp; <div id="placeholder-div2" style="background-color:black; "></div>
-            <script>
-                gapi.hangout.render('placeholder-div2', {
-                    'render': 'createhangout',
-                    'initial_apps': [{'app_id': '184219133185', 'start_data': 'dQw4w9WgXcQ', 'app_type': 'ROOM_APP'}],
-                    'widget_size': 72
-                });
-            </script></a></li>
+    <li ><a href="Interview.jsp">Interview &nbsp;&nbsp;&nbsp; </a></li>
     <li ><a href="#"><i class="fa fa-list"></i> List of selected Candidate</a></li>
 </ul>

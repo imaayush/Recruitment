@@ -10,7 +10,7 @@
                             if (session.getAttribute("id") != null) {
                                 String id1 = (String) session.getAttribute("id");
                                 Connection conn = ConnectionProvider.getCon();
-                                String query = "select*from JOB";
+                                String query = "select*from JOB ORDER BY ID DESC";
                                 PreparedStatement ps = conn.prepareStatement(query);
                                 // ps.setInt(1,1);
                                 // ps.setString(1,uemail);

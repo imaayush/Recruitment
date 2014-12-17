@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import bean.ConnectionProvider;
+import bean.Email;
 import bean.GetInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -223,7 +224,7 @@ public class Personal extends HttpServlet {
                     SimpleDateFormat ft = new SimpleDateFormat(" dd/MM hh:mm a ");
                     String time1 = (ft.format(date)).toString();
                     Connection conn = ConnectionProvider.getCon();
-                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME) values(?,?,?,?,?,?)";
+                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME,flag) values(?,?,?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, Email_sender);
                     ps.setString(2, Email_reciver);
@@ -231,7 +232,7 @@ public class Personal extends HttpServlet {
                     ps.setString(4, body);
                     ps.setString(5, time1);
                     ps.setString(6, Name_sender);
-
+                    ps.setString(7, "Unread");
                     ps.executeUpdate();
                     conn.close();
 
@@ -247,7 +248,7 @@ public class Personal extends HttpServlet {
                     SimpleDateFormat ft = new SimpleDateFormat(" dd/MM hh:mm a ");
                     String time1 = (ft.format(date)).toString();
                     Connection conn = ConnectionProvider.getCon();
-                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME) values(?,?,?,?,?,?)";
+                    String query = "insert into Message (SENDER_MAIL,RECIVER_MAIL,SUBJECT,BODY,DATE_MAIL,SEND_NAME,flag) values(?,?,?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, Email_sender);
                     ps.setString(2, Email_reciver);
@@ -255,7 +256,7 @@ public class Personal extends HttpServlet {
                     ps.setString(4, body);
                     ps.setString(5, time1);
                     ps.setString(6, Name_sender);
-
+                    ps.setString(7, "Unread");
                     ps.executeUpdate();
                     conn.close();
 
@@ -268,9 +269,12 @@ public class Personal extends HttpServlet {
                     String closingDate = request.getParameter("closingDate");
                     String NRound = request.getParameter("NRound");
                     String jPosition = request.getParameter("jPosition");
-
+                    String jEvent = request.getParameter("jEvent");
+                    String jEventUrl = request.getParameter("jEventUrl");
+                    String jTimeStart = request.getParameter("jTimeStart");
+                    String jTimeEnd = request.getParameter("jTimeEnd");
                     Connection conn = ConnectionProvider.getCon();
-                    String query = "insert into Job(NAME,DETAILS,OPEN,CLOSE,ROUND,OPEN_POSITIONS) values(?,?,?,?,?,?)";
+                    String query = "insert into Job(NAME,DETAILS,OPEN,CLOSE,ROUND,OPEN_POSITIONS,NEXT_EVENT,EVENT_DATE,EVENT_URL,EVENT_END) values(?,?,?,?,?,?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, NameJob);
                     ps.setString(2, JobDetails);
@@ -278,6 +282,10 @@ public class Personal extends HttpServlet {
                     ps.setString(4, closingDate);
                     ps.setString(5, NRound);
                     ps.setString(6, jPosition);
+                    ps.setString(7, jEvent);
+                    ps.setString(8, jTimeStart);
+                    ps.setString(9, jEventUrl);
+                    ps.setString(10, jTimeEnd);
 
                     ps.executeUpdate();
                     conn.close();
@@ -305,7 +313,7 @@ public class Personal extends HttpServlet {
                     ps.executeUpdate();
                     conn.close();
 
-                    response.sendRedirect("Create_Job.jsp");
+                    response.sendRedirect("Create_Q.jsp");
 
                 } else if (request.getParameter("Create_Quiz") != null) {
                     String NameQuiz = request.getParameter("NameQuiz");
@@ -315,9 +323,9 @@ public class Personal extends HttpServlet {
                     int Marks = Integer.parseInt(request.getParameter("Marks"));
                     String AddQuestion = request.getParameter("AddQuestion");
                     int cutoff = Integer.parseInt(request.getParameter("cutoff"));
-
+                    String Time_Duration = request.getParameter("Time_Duration");
                     Connection conn = ConnectionProvider.getCon();
-                    String query = "insert into QUIZ(NAME,NO_QUESTION,START_TIME,END_TIME,Mark,LIST_QUESTION,CUTOFF) values(?,?,?,?,?,?,?)";
+                    String query = "insert into QUIZ(NAME,NO_QUESTION,START_TIME,END_TIME,Mark,LIST_QUESTION,CUTOFF,TIME_DURATION) values(?,?,?,?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, NameQuiz);
                     ps.setInt(2, NoQuestion);
@@ -326,7 +334,7 @@ public class Personal extends HttpServlet {
                     ps.setInt(5, Marks);
                     ps.setString(6, AddQuestion);
                     ps.setInt(7, cutoff);
-
+                    ps.setString(8, Time_Duration);
                     ps.executeUpdate();
                     conn.close();
 
@@ -347,12 +355,32 @@ public class Personal extends HttpServlet {
                     ps.setString(3, jTimeStart);
                     ps.setString(4, jTimeEnd);
                     ps.setString(5, JobID);
-                
 
                     ps.executeUpdate();
                     conn.close();
 
                     response.sendRedirect("list_job.jsp");
+
+                } else if (request.getParameter("Update_Status") != null) {
+
+                    String EmailId = request.getParameter("EmailId");
+                    String Status = request.getParameter("Status");
+                    String JobId = request.getParameter("JobId");
+                    Connection conn = ConnectionProvider.getCon();
+                    String query = "update LIST_APPLICATION set STATUS=?  where APPLICATION= ? and ID=?  ";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, Status);
+                    ps.setString(2, EmailId);
+                    ps.setString(3, JobId);
+                    String upass=null; 
+                    
+                    
+                    ps.executeUpdate();
+                    conn.close();
+                    String Email1 =EmailId.toString();
+                    String body = "Your are " + Status;
+                    bean.Email.Sendmail(Email1, upass, body);
+                    response.sendRedirect("Interview.jsp");
 
                 }
 

@@ -27,13 +27,12 @@
        
         <% String id = (String) session.getAttribute("id");
             
-            int token = (int) session.getAttribute("token");
-            if (token == 0) {
+            
       
 
         %>
        
-        <%}%>
+        
         <title>Home</title> 
     </head> 
     <body> 
@@ -49,21 +48,17 @@
                 <a class="navbar-brand" href="index.jsp">Admin Panel</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse"  >
-                <%                    
+                                   
             
-                        if (token== 2) {
+                        
                       
-               %>
+              
                <%@include  file="side_admin.jsp" %>
-               <% }%>
                
-                 <%                    
-            
-                        if (token== 2 ||token==1) {
-                      
-               %>
+               
+                 
                <%@include  file="Admin_Name.jsp" %>
-               <% }%>
+              
                
             </div>
         </nav>

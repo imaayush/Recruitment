@@ -13,8 +13,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% 
-    int num = 0;
-    int count = 0;
+   
     if (session.getAttribute("id") != null) {
         String id2 = (String) session.getAttribute("id");
         Connection conn = ConnectionProvider.getCon();

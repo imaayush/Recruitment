@@ -1,4 +1,4 @@
-<%-- 
+ <%-- 
     Document   : Control_Panel
     Created on : Nov 27, 2014, 10:42:08 PM
     Author     : Knight
@@ -9,6 +9,11 @@
     Created on : Nov 19, 2014, 5:42:21 PM
     Author     : Knight
 --%>
+<%if((String) session.getAttribute("id")==null){
+    response.sendRedirect("Admin_Login.jsp");
+    
+}
+%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>

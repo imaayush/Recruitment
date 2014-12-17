@@ -3,7 +3,11 @@
     Created on : Nov 28, 2014, 1:26:02 AM
     Author     : Knight
 --%>
+<%if ((String) session.getAttribute("id") == null) {
+        response.sendRedirect("Admin_Login.jsp");
 
+    }
+%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>
@@ -40,19 +44,19 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Opening Date</label>
                             <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="OpeningDate" placeholder="DD/MM/YYYY" >
+                                <input type="text" class=" form-control" id="inputEmail3" name="OpeningDate" placeholder="MM/DD/YYYY" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Closing Date</label>
                             <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="closingDate" placeholder="DD/MM/YYYY" >
+                                <input type="text" class=" form-control" id="inputEmail3" name="closingDate" placeholder="MM/DD/YYYY" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">No of Round</label>
                             <div class="col-sm-6">
-                                <input type="text" class=" form-control" id="inputEmail3" name="NRound"  placeholder="No. of Round">
+                                <input type="text" class=" form-control" id="inputEmail3" name="NRound" value="3">
                             </div>
                         </div>
 
@@ -63,7 +67,43 @@
                                 <input type="text" class=" form-control" id="inputEmail3" name="jPosition" placeholder="Position" >
                             </div>
                         </div>
-                        
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Next Event</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="jEvent">
+                                    <option value="Quiz">Quiz</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label"> Quiz Name</label>
+                            <div class="col-sm-6">
+                                
+                                <select class="form-control" name="jEventUrl">
+                                  <%@include file="SelecteAll_Quiz.jsp" %>
+                                    <option value="<%=rs.getString("Id")%>"><%=rs.getString("Id")%>&nbsp;)&nbsp;<%=rs.getString("Name")%></option>
+                                     <%}}
+                                else{}
+                                %>
+
+                                </select>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Start Time</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control" id="inputEmail3" name="jTimeStart" placeholder="MM/DD/YYYY HH:MM" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">End Time</label>
+                            <div class="col-sm-6">
+                                <input type="text" class=" form-control" id="inputEmail3" name="jTimeEnd" placeholder="MM/DD/YYYY HH:MM" >
+                            </div>
+                        </div>
 
 
                     </div>

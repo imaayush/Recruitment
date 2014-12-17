@@ -24,5 +24,20 @@ public class GetInfo {
        ResultSet rs=ps.executeQuery(); 
         return rs;
     }
+     public static int AddorNot(String id ,String application) throws Exception {
+        int count =0;
+        Connection conn = ConnectionProvider.getCon();
+        String query = "select*from LIST_APPLICATION where APPLICATION=? and job=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1,application );
+        ps.setString(2,id );
+        ResultSet rs=ps.executeQuery(); 
+        if(!rs.next()){
+            count=1;
+        }else{
+            count=2;
+        }
+        return count;
+    }
 
 }

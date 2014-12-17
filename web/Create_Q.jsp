@@ -3,7 +3,11 @@
     Created on : Dec 4, 2014, 3:21:19 AM
     Author     : Knight
 --%>
-
+<%if((String) session.getAttribute("id")==null){
+    response.sendRedirect("Admin_Login.jsp");
+    
+}
+%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>

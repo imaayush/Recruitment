@@ -10,8 +10,8 @@
     
 }
 %>
-<%session.setAttribute( "token",0);%>
-<%@ include file="Header_Admin.jsp" %>
+
+<%@ include file="index_heder.jsp" %>
 <div style="width:27%;float:left;height:100%">
     <h1>  </h1>
 </div>

@@ -60,11 +60,11 @@
             conn.close();
            if(Result*each>cutoff){
                 conn = ConnectionProvider.getCon();
-               String tempId = session.getAttribute("JobID").toString();
+               String tempId = session.getAttribute("ApplicationId").toString();
                    query = "update LIST_APPLICATION set STATUS=?  where ID= ?";
                      ps = conn.prepareStatement(query);
                     
-                    ps.setString(1, "Quiz(Qualified)");
+                    ps.setString(1, "Interview");
                     ps.setString(2, tempId);
                     ps.executeUpdate();
                     conn.close();
@@ -72,11 +72,11 @@
            }else
            {
                 conn = ConnectionProvider.getCon();
-               String tempId = session.getAttribute("JobID").toString();
+               String tempId = session.getAttribute("ApplicationId").toString();
                    query = "update LIST_APPLICATION set STATUS=?  where ID= ?";
                      ps = conn.prepareStatement(query);
                     
-                    ps.setString(1, "Quiz(Disqualified)");
+                    ps.setString(1, "Disqualified");
                     ps.setString(2, tempId);
                     ps.executeUpdate();
                     conn.close();

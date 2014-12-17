@@ -3,7 +3,7 @@
     Created on : Nov 28, 2014, 12:14:46 AM
     Author     : Knight
 --%>
-
+<script src="js/ns.js" type="text/javascript"></script>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="selecte_admin.jsp" %>
@@ -13,13 +13,14 @@
             <%@include file="selecte_message.jsp" %>
             <a  href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"><i class="fa fa-envelope"></i> Messages <span class="badge"><%=count%></span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                
+                 
                 <li class="dropdown-header"><%=count%> New Messages</li>
                 <%while (rs.next()) { %>
+                <% int temp=Integer.parseInt(rs.getString("ID"));%>
                 <li class="message-preview">
-                    <a href="Admin_Message.jsp">
+                    <a >
                         <span class="avatar"><i class="fa fa-bell"></i></span>
-                        <span class="message"><%=rs.getString("SUBJECT")%></span>
+                        <span class="message" onclick="read1(<%=temp%>)"><%=rs.getString("SUBJECT")%></span>
                     </a>
                 </li>
                 <li class="divider"></li>

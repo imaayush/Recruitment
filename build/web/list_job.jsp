@@ -37,7 +37,8 @@
                         </table>
                         <div class="col-sm-12">
                            
-                            <button type="Submit" class="btn btn-primary" value=<%=rs.getString("ID")%> name="Create_Event" >Create Next Event</button>
+                            <button type="Submit" class="btn btn-primary" value=<%=rs.getString("ID")%> name="Create_Event" >Add Interview</button>
+                            <button type="Submit" class="btn btn-primary" value="Remove" name="Create_Event" >Remove</button>
                             <br>
                             <h1></h1>
                             <span></span>

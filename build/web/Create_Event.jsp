@@ -3,7 +3,11 @@
     Created on : Dec 5, 2014, 6:17:41 PM
     Author     : Knight
 --%>
-
+<%if((String) session.getAttribute("id")==null){
+    response.sendRedirect("Admin_Login.jsp");
+    
+}
+%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>
@@ -36,10 +40,10 @@
                             <label for="inputEmail3" class="col-sm-2 control-label">Next Event</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="jEvent">
-                                    <option value="Quiz">Quiz</option>
+                                    
                                     <option value="Interview">Interview</option>
                                     <option value="Challenge">Challenge</option>
-                                    <option value="Physical">Physical</option>
+                                    <option value="Physical">Physical Interview</option>
                                 </select>
                             </div>
                         </div>

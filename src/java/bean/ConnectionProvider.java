@@ -15,10 +15,19 @@ import static bean.Provider.*;
 public class ConnectionProvider {
 
     public static Connection getCon() throws Exception {
-            Connection con;
+        Connection con = null;
+        try {
+            
             Class.forName(DRIVER);
             con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-            return con;        
+            
+        } catch (Exception e) {
+            System.out.print(e);
+            con.close();
+            
+        } 
+        
+        return con;
     }
 
 }

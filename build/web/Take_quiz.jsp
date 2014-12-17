@@ -4,7 +4,11 @@
     Author     : Knight
 --%>
 
-
+<%if((String) session.getAttribute("id")==null){
+    response.sendRedirect("index.jsp");
+ 
+}
+%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.lang.String"%>
@@ -14,7 +18,7 @@
 <%@ page import="bean.ConnectionProvider.*" %>
 <script src="js/ns.js" type="text/javascript"></script>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<%session.setAttribute("token", 2);%>
+
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
 <%@ include file="header.jsp" %>
 
@@ -89,9 +93,9 @@
 
 
     </form>
-</div> <% int duration1 = 60;%>
+</div> 
                             <script>
-                                timer(<%=duration1%>);
+                                timer("<%=EVENT_END%>");
                             </script>
 
 </body>

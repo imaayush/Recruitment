@@ -15,11 +15,13 @@
     String POSITIONS ="";
     String Url="";
     String status="";
-    Date date1,date2;
+    String EVENT_END="";
+    String ApplicationId="";
+    Date date1,date2,date3;
     if (session.getAttribute("id") != null) {
         String id1 = (String) session.getAttribute("id");
         Connection conn = ConnectionProvider.getCon();
-        String query = "select*from LIST_APPLICATION where APPLICATION=" + "'" + id1 + "'";
+        String query = "select*from LIST_APPLICATION where APPLICATION=" + "'" + id1 + "'" +"ORDER BY ID DESC";
         PreparedStatement ps = conn.prepareStatement(query);
                                 // ps.setInt(1,1);
         // ps.setString(1,uemail);
@@ -29,7 +31,8 @@
 
         while (rs.next()) {
             String id2 = rs.getString("JOB");
-            JobID=rs.getString("ID");
+             ApplicationId = rs.getString("id");
+            JobID=rs.getString("JOB");
             status=rs.getString("STATUS");
             query = "select*from JOB where ID=" + "'" + id2 + "'";
             PreparedStatement ps1 = conn.prepareStatement(query);
@@ -42,6 +45,7 @@
                  Event_Date = rs1.getString("EVENT_DATE");
                   POSITIONS = rs1.getString("OPEN_POSITIONS");
                    Url = rs1.getString("EVENT_URL");
+                    EVENT_END = rs1.getString("EVENT_END");
             }
         
 

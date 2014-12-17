@@ -13,7 +13,7 @@
 <script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
 
-<%@ include file="header.jsp" %>
+<%@ include file="index_heder.jsp" %>
 <div style="width:75% ;height:100% ; margin-left:20%">
 
     <form role="form" action="Personal" method="post"  class="form-horizontal" >

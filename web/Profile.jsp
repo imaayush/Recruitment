@@ -3,6 +3,13 @@
     Created on : Nov 19, 2014, 5:42:21 PM
     Author     : Knight
 --%>
+<%if ((String) session.getAttribute("id") == null) {
+        
+        response.sendRedirect("index.jsp");
+    } else {
+     
+    }
+%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="bean.ConnectionProvider"%>
@@ -15,7 +22,7 @@
 <link href="css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
 <script src="js/bootstrap-tagsinput.js" type="text/javascript"></script>
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
-<% session.setAttribute("token", 2);%>
+
 <%@ include file="header.jsp" %>
 
 <div style="width:75% ;float:left;height:100% ; margin-left:22%; margin-top: -2%;">

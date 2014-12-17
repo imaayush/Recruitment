@@ -3,7 +3,11 @@
     Created on : Dec 3, 2014, 8:22:14 PM
     Author     : Knight
 --%>
-
+<%if((String) session.getAttribute("id")==null){
+    response.sendRedirect("Admin_Login.jsp");
+    
+}
+%>
 <%@page import="java.lang.String"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bean.GetInfo"%>
@@ -13,7 +17,7 @@
 
 <link href="css/card.css" rel="stylesheet" type="text/css"/>
 <%@ include file="Header_Admin.jsp" %>
-<%@ include file="selecte_admin.jsp" %>
+
 <div style="width:75% ;float:left;height:95%;margin-left:22%; margin-top: -2% ">
 
     <div class="row" >
@@ -24,7 +28,7 @@
                 </div>
                 <div class="listing-content" style="height: 85%;">
                     <div class="form-group" style="overflow: auto ;max-height:85%;">
-                        <%@include file="selecte_message.jsp" %>
+                        <%@include file="Selecte_messageAll.jsp" %>
                 
                 <%while (rs.next()) {%>
                 <div class="form-group">

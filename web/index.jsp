@@ -2,8 +2,7 @@
 <%if((String) session.getAttribute("id")!=null){
     response.sendRedirect("home.jsp");
 }%>
-<%session.setAttribute( "token",0);%>
-<%@ include file="header.jsp" %>
+<%@ include file="index_heder.jsp" %>
 <div style="width:27%;float:left;height:100%">
     <h1>  </h1>
 </div>

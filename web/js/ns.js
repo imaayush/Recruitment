@@ -10,13 +10,27 @@ var current=0;
 
 function timer(val){
     console.log(val);
- time=val;
+    time = new Date(val)-new Date();
+    
+    
    asdf();
  }
  function asdf(){
       time=time-1;
-    $("#timer").text(time);
+        
+    $("#timer").text(Math.floor((time/60000))+" Min");
     setTimeout(asdf,1000);
  }
 
+function read(val){
 
+                var outString = "Read.jsp?x1=" + val
+                 console.log(val);
+                     location.href = outString
+}
+function read1(val){
+
+                var outString = "Read_Admin.jsp?x1=" + val
+                 console.log(val);
+                     location.href = outString
+}

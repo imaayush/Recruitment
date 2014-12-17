@@ -30,7 +30,7 @@
         </li>
         <li class="list-group-item">
             <a href="#Photo">Photo</a>
-            <span class="glyphicon glyphicon-remove"></span>
+            <span class="glyphicon glyphicon-ok"></span>
 
         </li>
         <li class="list-group-item">
